@@ -1,8 +1,6 @@
 #summary One-sentence summary of this page.
 #sidebar Index
 
-=Community=
-
 Mrxvt has three mailing lists
 
   * {{{materm-devel}}} for development, bugs, etc: [http://sourceforge.net/mailarchive/forum.php?forum_name=materm-devel Archives] [http://lists.sourceforge.net/mailman/listinfo/materm-devel Subscribe]
