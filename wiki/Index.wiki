@@ -9,4 +9,4 @@
   * [Links Links]
   * [Contact Contact]
   * [Contributing Contributing to Mrxvt]
-  * [Site Map Site Map]
+  * [http://code.google.com/p/mrxvt/w/list Site Map]
