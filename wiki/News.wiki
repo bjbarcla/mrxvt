@@ -1,4 +1,5 @@
 #summary News about the mrxvt project.
+#sidebar Index
 
 = News =
 
