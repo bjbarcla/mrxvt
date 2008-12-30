@@ -1,6 +1,8 @@
 #summary Download page for the mrxvt project.
 #sidebar Index
 
+<wiki:toc max_depth="2" />
+
 =Download=
 
 ==Source Code==
@@ -18,7 +20,7 @@
 svn checkout https://materm.svn.sourceforge.net/svnroot/materm/mrxvt05b
 }}}
 
-Note: To compile and install this you need to:
+    Note: To compile and install this you need to:
 
 {{{
 ./bootstrap.sh ; ./configure ; make ; make install
@@ -27,14 +29,14 @@ Note: To compile and install this you need to:
   You can also browse the subversion repository online [http://sourceforge.net/svn/?group_id=114665 here].
   * CVS: The CVS tree is now abandoned. Please use subversion instead. 
 
-If you are submiting a patch, please make sure you submit your patch against the current version of mrxvt from the SUBVERSION repository.
+  If you are submiting a patch, please make sure you submit your patch against the current version of mrxvt from the SUBVERSION repository.
 
 ===Stable branch===
 
-    * Release: [http://prdownloads.sourceforge.net/materm/mrxvt-0.4.2.tgz?download mrxvt-0.4.2]
-      Release: [http://prdownloads.sourceforge.net/materm/mrxvt-0.4.1.tar.gz?download mrxvt-0.4.1]
-      Release: [http://prdownloads.sourceforge.net/materm/mrxvt-0.4.0.tar.gz?download mrxvt-0.4.0]
-      Release: [http://prdownloads.sourceforge.net/materm/materm-0.2.0.tgz?download mrxvt-0.2.0]
+  * Release: [http://prdownloads.sourceforge.net/materm/mrxvt-0.4.2.tgz?download mrxvt-0.4.2]
+  * Release: [http://prdownloads.sourceforge.net/materm/mrxvt-0.4.1.tar.gz?download mrxvt-0.4.1]
+  * Release: [http://prdownloads.sourceforge.net/materm/mrxvt-0.4.0.tar.gz?download mrxvt-0.4.0]
+  * Release: [http://prdownloads.sourceforge.net/materm/materm-0.2.0.tgz?download mrxvt-0.2.0]
 
 ==Binary download==
 
@@ -44,7 +46,7 @@ If you are submiting a patch, please make sure you submit your patch against the
     Mrxvt is already in the portage! If you want a live ebuild (i.e. want an ebuild that will download mrxvt from latest subversion sources and install it for you), then look here. Alternately add the devnull overlay using layman.
 ===SuSE Linux===
     Mrxvt rpm packages for SuSE 9.0, 9.1, 9.2, 9.3 and 10.0 are available at Guru's RPM site. They are maintained by Pascal Bleser <guru at unixtech dot be>. Let us thank him for the nice work!
-===RedHat/Fedora Linux===
+===!RedHat/Fedora Linux===
     Mrxvt rpm for Fedora Core 3 are available at sourceforge.net. Thanks to Jingyu Zhou <jingyuzhou AT hotmail dot com> for building it for us!
 ===Debian Linux===
     Binaries of debian for i386 are available at sourceforge.net. Xiong Jiang <jxiong at offtopic dot org> initiated these builds, and they are now maintained by Qingning Huo <qhuo at users dot sourceforge dot net>. You can also download them from Qingning's website.
