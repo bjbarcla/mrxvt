@@ -40,4 +40,4 @@ Apr 19, 2005
 Feb 25, 2005
     Mrxvt version 0.4.0 is released! This is a long awaited stable release since there have been no more bug reports recently. ;-) This release fixes several minor bugs. 
 
-Read older news [http://materm.sourceforge.net/wiki/Main/OldNews here]. 
+Read older news [OldNews here]. 
