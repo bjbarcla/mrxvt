@@ -1,10 +1,12 @@
 #summary Index page - also acts as a sidebar
 
   * [Main Home]
+  * [News News]
+  * [Screenshots Screenshots]
   * [Download Download]                      
   * [Documentation Documentation]
   * [Community Community]
   * [Links Links]
   * [Contact Contact]
-  * [Contributing to Mrxvt Contributing to Mrxvt]
+  * [Contributing Contributing to Mrxvt]
   * [Site Map Site Map]
