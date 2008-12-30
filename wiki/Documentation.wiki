@@ -2,7 +2,9 @@
 #sidebar Index
 
 =Documentation=
-==Official documentation== (supplied with mrxvt)
+==Official documentation== 
+
+(supplied with mrxvt)
 
 <wiki:comment>
 FIXME: Files to be linked from svn rather than sourceforge
@@ -16,5 +18,5 @@ FIXME: Files to be linked from svn rather than sourceforge
   * Official FAQ supplied with the mrxvt source archive: [http://materm.sourceforge.net/wiki/Main/Documentation?action=download&upname=faq.txt faq.txt]. (NOTE: This information will gradually be migrated to the WIKI.)
   * How do I [Contribute contribute] to the mrxvt wiki?
   * [Upgrading Upgrading] to mrxvt-0.5.x
-  * Troubleshooting
-  * Tips and tricks 
+  * [Troubleshooting Troubleshooting]
+  * [Tips Tips and tricks]
