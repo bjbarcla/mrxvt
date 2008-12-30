@@ -7,7 +7,7 @@ Here is one screen shot of mrxvt-0.5.0 with many tabs, a scroll-bar and showing 
 
 <wiki:comment>
 Images to be put into svn and links replaced with:
-http://your project.googlecode.com/svn/wiki/
+http://mrxvt.googlecode.com/svn/wiki/
 </wiki:comment>
 
 [http://materm.sourceforge.net/images/v5screenshot1.png http://materm.sourceforge.net/images/v5small-screenshot1.png]
