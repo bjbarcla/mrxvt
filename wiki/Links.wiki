@@ -1,0 +1,18 @@
+#summary Links page for the mrxvt project.
+#sidebar Index
+
+==Terminal emulators for X Window System==
+
+    * [http://sourceforge.net/projects/rxvt rxvt]
+    * [http://software.schmorp.de/pkg/rxvt-unicode.html rxvt-unicode]
+    * [http://sourceforge.net/projects/aterm aterm]
+    * [http://invisible-island.net/xterm xterm]
+    * [http://www.eterm.org/ eterm]
+
+==Tabbed terminal emulators for X Window System==
+
+    * [http://www.nongnu.org/materm multi-aterm]
+    * [http://freshmeat.net/projects/xfceterminal XFCE Terminal]
+    * [http://www.gnomefiles.org/app.php?soft_id=113 Gnome Terminal]
+    * [http://multignometerm.sourceforge.net/ Multi-Gnome-Terminal]
+    * [http://konsole.kde.org/ Konsole]
