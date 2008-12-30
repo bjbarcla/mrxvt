@@ -11,4 +11,4 @@ The users list is very low traffic. Please revive it :).
 
 There is also the [http://sourceforge.net/tracker/?group_id=114665 SourceForge.net] tracker system for feature requests, bugs, patches etc.
 
-You can also contribute to this wiki. (Click [Contribute here] for details on how)
+You can also contribute to this wiki. (Click [Contributing here] for details on how)
