@@ -1,9 +1,9 @@
 #summary Index page - also acts as a sidebar
 
-* [Download Download]                      
-* [Documentation Documentation]
-* [Community Community]
-* [Links Links]
-* [Contact Contact]
-* [Contributing to Mrxvt Contributing to Mrxvt]
-* [Site Map Site Map]
+  * [Download Download]                      
+  * [Documentation Documentation]
+  * [Community Community]
+  * [Links Links]
+  * [Contact Contact]
+  * [Contributing to Mrxvt Contributing to Mrxvt]
+  * [Site Map Site Map]
