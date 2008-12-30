@@ -5,9 +5,9 @@
 
 Mrxvt has three mailing lists
 
-  * materm-devel for development, bugs, etc: [http://sourceforge.net/mailarchive/forum.php?forum_name=materm-devel Archives] [http://lists.sourceforge.net/mailman/listinfo/materm-devel Subscribe]
-  * materm-usage for usage questions [http://sourceforge.net/mailarchive/forum.php?forum_name=materm-usage Archives] [http://lists.sourceforge.net/mailman/listinfo/materm-usage Subscribe]
-  * materm-commit for automatic notifications of commits to the subversion repository. [http://sourceforge.net/mailarchive/forum.php?forum=materm-commit Archives] [http://lists.sourceforge.net/mailman/listinfo/materm-commit Subscribe] 
+  * {{{materm-devel}}} for development, bugs, etc: [http://sourceforge.net/mailarchive/forum.php?forum_name=materm-devel Archives] [http://lists.sourceforge.net/mailman/listinfo/materm-devel Subscribe]
+  * {{{materm-usage}}} for usage questions [http://sourceforge.net/mailarchive/forum.php?forum_name=materm-usage Archives] [http://lists.sourceforge.net/mailman/listinfo/materm-usage Subscribe]
+  * {{{materm-commit}}} for automatic notifications of commits to the subversion repository. [http://sourceforge.net/mailarchive/forum.php?forum=materm-commit Archives] [http://lists.sourceforge.net/mailman/listinfo/materm-commit Subscribe] 
 
 The users list is very low traffic. Please revive it :).
 
