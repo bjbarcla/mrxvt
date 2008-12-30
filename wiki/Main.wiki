@@ -1,0 +1,26 @@
+#summary Main wiki for the mrxvt project.
+#sidebar Index
+
+=Mrxvt Wiki Home=
+
+*mrxvt* (previously named materm) is a lightweight, powerful multi-tabbed terminal emulator for the X window system. *mrxvt* is based on rxvt version 2.7.11 CVS and *aterm*. It implements many useful features seen in some modern X terminal emulators (like *gnome-terminal* and *konsole*) but aims to be fast, lightweight and independent of standard toolkits or desktop environments (e.g. Gnome / KDE).
+
+==Features==
+
+  # Multi-tab support
+  # Run time changeable per-tab titles / backgrounds / colors.
+  # Session support for each tab
+  # Input broadcasting to all tabs
+  # Customizable keyboard shortcuts
+  # Translucency and pseudo transparency support
+  # JPEG / PNG / XPM background support
+  # Off-focus background fading
+  # Xft support.
+  # Text shadow
+  # Menubar / popup menus
+  # XIM and multi-language (Chinese/Japanese/Korean) support.
+  # Five different scroll bar styles
+  # Small and fast.
+  # Does not depend on GTK / Qt / Gnome / KDE.
+  # Available on multiple platforms.
+  # utmp/wtmp/lastlog logging 
