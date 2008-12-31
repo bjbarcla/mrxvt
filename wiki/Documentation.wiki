@@ -1,8 +1,7 @@
 #summary Documentation page for the mrxvt project.
 #sidebar Index
 
-=Documentation=
-==Official documentation== 
+=Official documentation=
 
 (supplied with mrxvt)
 
@@ -13,7 +12,7 @@ FIXME: Files to be linked from svn rather than sourceforge
   * Escape sequences supported: [http://materm.sourceforge.net/wiki/Main/Documentation?action=download&upname=mrxvt_seq.txt mrxvt_seq.txt]
   * Sample mrxvtrc (supplied with the source): [http://materm.svn.sourceforge.net/viewvc/*checkout*/materm/mrxvt05b/share/mrxvtrc.sample mrxvt.sample]
 
-==Frequently asked questions==
+=Frequently asked questions=
 
   * Official FAQ supplied with the mrxvt source archive: [http://materm.sourceforge.net/wiki/Main/Documentation?action=download&upname=faq.txt faq.txt]. (NOTE: This information will gradually be migrated to the WIKI.)
   * How do I [Contribute contribute] to the mrxvt wiki?
