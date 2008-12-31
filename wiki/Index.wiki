@@ -2,9 +2,12 @@
 
   * [Main Home]
   * [News News]
+    * [OldNews Older News]
   * [Screenshots Screenshots]
   * [Download Download]                      
   * [Documentation Documentation]
+    * [Upgrading Upgrading]
+    * [Troubleshooting Troubleshooting]
   * [Community Community]
   * [Links Links]
   * [Contact Contact]
