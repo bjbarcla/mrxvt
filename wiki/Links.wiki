@@ -13,6 +13,6 @@
 
     * [http://www.nongnu.org/materm multi-aterm]
     * [http://freshmeat.net/projects/xfceterminal XFCE Terminal]
-    * [http://www.gnomefiles.org/app.php?soft_id=113 Gnome Terminal]
+    * [http://library.gnome.org/users/gnome-terminal/stable/ Gnome Terminal]
     * [http://multignometerm.sourceforge.net/ Multi-Gnome-Terminal]
     * [http://konsole.kde.org/ Konsole]
