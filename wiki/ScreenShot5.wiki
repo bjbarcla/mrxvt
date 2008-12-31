@@ -1,0 +1,4 @@
+#summary Screenshot 5 of mrxvt version 0.4.x
+#sidebar Index
+
+http://mrxvt.googlecode.com/svn/wiki/screenshot-5.png
