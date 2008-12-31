@@ -24,7 +24,7 @@ Additionally, a few options have been removed, and numerous options have been ad
 
 =What's different in mrxvt-0.5.1=
 
-A list of differences will be put up after the next release. For now, read the SVN commit logs, or the ChangeLog file in the source archive.
+A list of differences will be put up after the next release. For now, read the SVN commit logs, or the !ChangeLog file in the source archive.
 
 =What's this new profile option in 0.5.1. How do I migrate?=
 
