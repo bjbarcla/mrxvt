@@ -4,7 +4,7 @@
 
 =What's different in mrxvt-0.5.4=
 
-[http://materm.svn.sourceforge.net/viewvc/materm/release-0.5.4/ChangeLog.old?revision=310&view=markup ChangeLog]
+*_TBA_*
 
 =What's different in mrxvt-0.5.3=
 
