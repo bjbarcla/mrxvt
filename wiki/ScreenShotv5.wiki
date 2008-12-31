@@ -1,4 +1,4 @@
 #summary Screenshot 1
 #sidebar Index
 
-http://mrxvt.googlecode.com/svn/wiki/screenshot-1.png
+http://mrxvt.googlecode.com/svn/wiki/v5screenshot-1.png
