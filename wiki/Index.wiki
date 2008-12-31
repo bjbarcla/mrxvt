@@ -19,4 +19,4 @@
 
   * [http://code.google.com/p/mrxvt/w/list Site Map]
 
-  * [http://sourceforge.net/projects/materm mrxvt SourceForge project page]
+  * [http://sourceforge.net/projects/materm mrxvt project page]
