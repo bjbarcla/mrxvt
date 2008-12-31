@@ -3,7 +3,7 @@
 <wiki:toc max_depth="1" />
 
 =Can I search the scroll back buffer=
-    Yes. Well sort of. The following two macros (bound to Ctrl+Shift+? and Ctrl+/ respectively) will save your scroll back buffer to a file and open it (in a new tab) in less and vim respectively. When opened in less, you can see the same colors as you do on your screen. When opened in Vim, you can edit / cut & paste, but can't see the same colors [unless you write your own syntax file, and use the "conceal" patch by Vince Negri].
+    Yes. Well sort of. The following two macros (bound to Ctrl+Shift+? and Ctrl+/ respectively) will save your scroll back buffer to a file and open it (in a new tab) in less and vim respectively. When opened in less, you can see the same colors as you do on your screen. When opened in Vim, you can edit / cut & paste, but can't see the same colors (unless you write your own syntax file, and use the "conceal" patch by Vince Negri).
 {{{
 Mrxvt.macro.Primary+Ctrl+Shift+question: PrintScreen -ps perl -e '$_=join("",<STDIN>); s/\n+$/\n/g; print' > /tmp/scrollback
 Mrxvt.macro.Primary+Add+Ctrl+Shift+question: NewTab "(Search)" /bin/sh -c "less -ifLR +G /tmp/scrollback; rm /tmp/scrollback"
