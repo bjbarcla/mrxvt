@@ -1,6 +1,6 @@
 #summary Index page - also acts as a sidebar
 
-mrxvt.png
+http://code.google.com/p/mrxvt/w/mrxvt.png
 
   * [Main Home]
   * [News News]
