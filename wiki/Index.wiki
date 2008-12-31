@@ -19,5 +19,3 @@ http://mrxvt.googlecode.com/svn/wiki/mrxvt.png
   * [Contributing Contributing to Mrxvt]
   * [http://code.google.com/p/mrxvt/w/list Site Map]
   * [http://sourceforge.net/projects/materm mrxvt project page]
-
-http://sflogo.sourceforge.net/sflogo.php?group_id=114665&type=1
