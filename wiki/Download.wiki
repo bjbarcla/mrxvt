@@ -3,9 +3,9 @@
 
 <wiki:toc max_depth="1" />
 
-=Source Code=
+= Source Code =
 
-==Unstable branch==
+== Unstable branch ==
 
   * Release: [http://prdownloads.sourceforge.net/materm/mrxvt-0.5.0.tar.gz?download mrxvt-0.5.0]
   * Release: [http://prdownloads.sourceforge.net/materm/mrxvt-0.5.1.tar.gz?download mrxvt-0.5.1]
