@@ -7,7 +7,7 @@ ScreenShotv5 http://mrxvt.googlecode.com/svn/wiki/v5small-screenshot1.png
 
 Here are a few screenshots of the older versions (0.4.x) of mrxvt:
 
- * ScreenShot1 http://mrxvt.googlecode.com/svn/wiki/small-screenshot-1.png
+ * ScreenShot1 [ScreenShot1 http://mrxvt.googlecode.com/svn/wiki/small-screenshot-1.png]
  * ScreenShot2 http://mrxvt.googlecode.com/svn/wiki/small-screenshot-2.png
  * ScreenShot3 http://mrxvt.googlecode.com/svn/wiki/small-screenshot-3.png
  * ScreenShot4 http://mrxvt.googlecode.com/svn/wiki/small-screenshot-4.png
