@@ -1,5 +1,7 @@
 #summary Index page - also acts as a sidebar
 
+mrxvt.png
+
   * [Main Home]
   * [News News]
     * [OldNews Older News]
