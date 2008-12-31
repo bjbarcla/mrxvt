@@ -12,7 +12,7 @@ to spawn a new instance with compiled-in defaults. If the problem goes away, it'
 
 ==Version==
 
-Next, you could make sure you're running the [Downloading latest version]. It may be a bug that's already been fixed. You could even checkout the very latest code from subversion, which may have fixed the problem (though it may have introduced others ;) ).
+Next, you could make sure you're running the [Download latest version]. It may be a bug that's already been fixed. You could even checkout the very latest code from subversion, which may have fixed the problem (though it may have introduced others ;) ).
 
 =TERM=
 
