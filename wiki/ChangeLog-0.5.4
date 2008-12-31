@@ -1,0 +1,342 @@
+2007-08-23 08:28  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* configure.ac: Version bump to 0.5.4
+
+2007-08-27 18:54  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* doc/mrxvt.1, src/rxvtlib.h, src/screen.c, src/xdefaults.c:
+	  Removed (obsolete) scrollWithBuffer option. It caused problems if
+	  combined with ttyInhibitScroll. Thanks to Krzysiek Pawlik
+	  <nelchael@gentoo.org> for pointing it out.
+
+2007-08-29 18:43  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* configure.ac, src/main.c, src/xdefaults.c: Added missing new
+	  lines after some error messages
+
+2007-08-31 19:04  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* src/rxvt.h: Fix typo (thanks to Bill White
+	  <bill.white@griggsinst.com>)
+
+2007-08-31 19:33  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* doc/mrxvt.1, src/macros.c: Made ToggleBroadcast accept an option
+	  so that input broadcasting can be enabled / disabled (not just
+	  toggled).
+
+2007-09-09 00:42  Jimmy Zhou <jimmyzhou@users.sourceforge.net>
+
+	* src/rxvt.h: eliminate warning on mac os x
+
+2007-09-23 01:12  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* configure.ac, src/macros.c: Added NetBSD portability patches by
+	  Tobias Nygren <tnn@netbsd.org>
+
+2007-09-28 01:23  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* src/feature.h, src/init.c: Defined ACS_ASCII by default, and
+	  fixed compile failure
+
+2007-12-11 20:28  Jehan <hysseo@users.sourceforge.net>
+
+	* configure.ac, src/encoding.c: Fix codeset guess from name with
+	  modifier '@' + preferred guess method if defined HAVE_NL_LANGINFO
+
+2007-12-11 23:47  Jehan <hysseo@users.sourceforge.net>
+
+	* configure.ac, doc/guessing_codeset.txt.bz2, src/encoding.c:
+	  forgot add my name + the mail about guessing codeset + some
+	  traces
+
+2007-12-22 12:26  Jehan <hysseo@users.sourceforge.net>
+
+	* src/screen.c: No functional change: only variables def out of a
+	  loop but still in limited scope
+
+2008-02-17 22:19  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* src/feature.h: Reduced the default minimum Xft size to 5. With
+	  high resolution displays of today (e.g. my new laptop), this is
+	  still quite readable.
+
+2008-02-17 22:44  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* src/feature.h: On second thought, set the minimum font size to be
+	  1. This way, a user can just set the font sizes to be 1, and get
+	  a reasonable (live) "iconified" mrxvt.
+
+2008-03-20 15:28  Frederik Deweerdt <fdeweerdt@users.sourceforge.net>
+
+	* src/command.c: Enhance mouse highlighting the problem was nicely
+	  explained by Brice Figureau
+	  here:
+	  http://www.nabble.com/Really-slow-mouse-highlighting.-to15756056.html
+	  
+	  The fix is to immediatly process X events if there is only a
+	  small (25) number
+	  of them to handle.
+
+2008-04-05 19:46  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* doc/mrxvt.1, src/command.c, src/init.c, src/rxvt.h,
+	  src/rxvtlib.h, src/screen.c, src/xdefaults.c: 1. Added options
+	  --currentTabVBell to ring a visual bell only on the active tab of
+	  a focused window.
+	  2. Added option --vBellDuration for the amount of time to flash
+	  the screen.
+	  3. (untested) Compile fixes with #define NO_BELL
+	  (I am blessed with a laptop where the PC speaker doesn't work
+	  when my sound card is enabled. The above makes my life a lot
+	  better...)
+
+2008-04-20 05:39  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* doc/mrxvt.1, share/default.menu, share/mrxvtrc, src/macros.c,
+	  src/protos.h, src/screen.c: Added patch by Marc Schoechlin
+	  <ms-mrxvt@256bit.org> allowing the paste of clipboard / second
+	  selection into mrxvt.
+
+2008-04-20 22:16  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* src/macros.c, src/protos.h, src/rxvtlib.h, src/xdefaults.c: Bug
+	  fix: When a chained macro is defined (say in system mrxvtrc),
+	  overriding it via command line or ~/.mrxvtrc with a non-chained
+	  macro caused the tail of the system mrxvtrc macro definition to
+	  be added to the user macro definition.
+
+2008-04-20 22:28  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* src/command.c, src/macros.c: Removed debugging info
+
+2008-04-20 22:39  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* doc/mrxvt.1, share/mrxvtrc: Changed default macros:
+	  1. Removed Ctrl+Shift+x (Paste SECONDARY), since it was
+	  previously defined as save config.
+	  2. Changed mrxvt console from Ctrl+Shift+c to Ctrl+Shift+z
+	  3. Bound Ctrl+shift+c to paste the clipboard.
+	  Most other keys look like they are used already. If you find a
+	  reasonable one that is unused, we can bind it to Paste SECONDARY
+	  by default. Otherwise, you can just bind that in ~/.mrxvtrc
+
+2008-04-29 20:42  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* src/init.c: Display security issue (Gentoo Bug 291750). Only
+	  affects LOCAL_X_IS_UNIX users
+
+2008-04-30 20:43  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* doc/mrxvt.1, share/default.menu, share/mrxvtrc, src/macros.c,
+	  src/protos.h, src/rxvtlib.h, src/screen.c: Patch from Marc
+	  Schoechlin <ms-mrxvt@256bit.org>: paste the contents of a file to
+	  the currently active tab (documentation included).
+
+2008-04-30 21:22  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* ChangeLog, ChangeLog.old, svn-authors.xml, svn-to-changelog.sh:
+	  Added scripts to make the ChangeLog file directly from the SVN
+	  logs.
+
+2008-05-03 18:11  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* src/macros.c, src/screen.c: Fixed indent in Marc's patches
+
+2008-05-03 18:35  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* src/tabbar.c: Used wordexp() to expand workingDirectory
+
+2008-05-03 18:50  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* src/screen.c: Avoid ambiguous expansions in pasteFile
+
+2008-05-03 18:52  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* Makefile.am: Put ChangeLog.old in distributed files
+
+2008-05-05 17:59  Marc Schoechlin <ms@256bit.org>
+
+	* TODO: hint for brace/tab style in vim
+
+2008-05-05 18:00  Marc Schoechlin <ms@256bit.org>
+
+	* src/tabbar.c: fixed broken compile
+
+2008-05-12 17:11  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* bootstrap.sh: Generate dummy ChangeLog if it's not present.
+
+2008-05-12 20:45  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* configure.ac, src/screen.c, src/tabbar.c: #ifdef all code using
+	  wordexp
+
+2008-05-14 18:56  Marc Schoechlin <ms@256bit.org>
+
+	* bootstrap.sh: fixed syntax error
+
+2008-05-14 19:04  Marc Schoechlin <ms@256bit.org>
+
+	* share/mrxvtrc.sample, src/menubar.c: fix: enabled debug-mode
+	  deactivated menu funcionality, menu is now activated as default
+
+2008-05-19 17:37  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* src/macros.c, src/menubar.c: Accept profile numbers greater than
+	  10.
+
+2008-05-19 17:51  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* TODO, svn-authors.xml: Add Marc's name/email to svn-authors.
+
+2008-05-19 18:30  Marc Schoechlin <ms@256bit.org>
+
+	* src/debug.c: rxvt_msg: automatic adding of newline if fmt does
+	  not end with a newline
+
+2008-05-19 18:52  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* src/debug.c: Avoid strrchr when checking for trailing newlines.
+	  (No search beyond the last char is required).
+
+2008-05-19 19:09  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* share/mrxvtrc.sample: Made comment match example for
+	  autoHideTabbar
+
+2008-05-20 17:51  Marc Schoechlin <ms@256bit.org>
+
+	* TODO: corrected typo in funtionname, unsure if the bug still
+	  exists
+
+2008-05-26 18:50  Marc Schoechlin <ms@256bit.org>
+
+	* src/command.c, src/macros.c: beautify code, very simple changes
+
+2008-06-02 17:38  Marc Schoechlin <ms@256bit.org>
+
+	* src/encoding.c, src/init.c: cleanup for proper build,
+	  rxvt_dbgmsg: wrong number of arguments, end: unused variable
+
+2008-06-02 17:44  Marc Schoechlin <ms@256bit.org>
+
+	* src/command.c: trivial reformatting
+
+2008-06-02 18:47  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* src/encoding.c: The variable "end" is used if HAVE_NL_LANGINFO is
+	  not defined. Add back the variable "end" in this case.
+
+2008-06-10 21:28  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* src/command.c, src/xdefaults.c: Fix compile warnings on Solaris
+	  (Ethan Mallove, Cyril Romain)
+
+2008-06-11 02:19  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* src/screen.c: Made inline functions static (Avoids warnings on
+	  Solaris -- Ethan Mallove)
+
+2008-06-13 19:09  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* src/init.c: s/NAME_MAX/FILENAME_MAX/ (Solaris fix, Ethan Mallove)
+
+2008-06-13 20:31  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* src/command.c, src/xdefaults.c: Oops. Revision 289 assumed "a ?:
+	  b" was equivalent to "a ? NULL : b". This is FALSE. It is in fact
+	  equivalent to "a ? a : b".
+
+2008-06-16 20:37  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* src/command.c: Bugfix -- Sometimes when the mrxvt window is
+	  completely obscured, mrxvt starts "polling", causing lots of
+	  wake-ups and bad battery sucking behaviour. This patch fixes
+	  this. (While the fix is small, it took a long time to hunt down.)
+
+2008-06-23 17:59  Marc Schoechlin <ms@256bit.org>
+
+	* src/tabbar.c: wondered why background filling of active tab does
+	  not work and discovered that this is inactive if
+	  transparentTabbar is enabled, for clarification in future i added
+	  debug output
+
+2008-06-26 18:16  Marc Schoechlin <ms@256bit.org>
+
+	* share/mrxvtrc: Beautified default configuration, mrxvt looks now
+	  a bit more appealing in default configuration. The menu is
+	  visible as default
+
+2008-06-29 19:39  Marc Schoechlin <ms@256bit.org>
+
+	* TODO, doc/mrxvt.1, share/mrxvtrc, share/mrxvtrc.sample,
+	  share/submenus.menu, src/command.c, src/macros.c, src/rxvt.h,
+	  src/rxvtlib.h, src/tabbar.c, src/xdefaults.c: - first release of
+	  new tabmonitoring feature
+	  (inactivity, activity or automatic detection)
+	  - new configuration directives
+	  - new macro 'MonitorTab'
+	  - monitorTimeout, specifies the timeout for detecting the
+	  type of monitoring and the timeout for detecting inactivity
+	  - monitorCommand, specifies a command which will be executed in
+	  background
+	  if a monitor event occurs
+	  - new feature is configured as a hotkey and in the menu
+	  - documentation included
+	  - feature removed from the TODO file
+	  - the "i don't care about soccer" release :-)
+
+2008-06-29 21:49  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* share/mrxvtrc, share/mrxvtrc.sample: Ctrl-Shift-W is already
+	  used, so don't rebind it by default.
+
+2008-06-29 22:07  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* share/mrxvtrc: Added 80% background shading as default. (But did
+	  not enable transparency by default). THis way someone who toggles
+	  transparency at run time will see a transparent background.
+
+2008-06-30 05:14  Marc Schoechlin <ms@256bit.org>
+
+	* TODO: modified vim-modeline in coding guidlines to a tabwidth of
+	  80 characters
+
+2008-06-30 05:14  Marc Schoechlin <ms@256bit.org>
+
+	* src/command.c, src/rxvtlib.h, src/tabbar.c: modified vim-modeline
+	  in coding guidlines to a tabwidth of 80 characters
+
+2008-06-30 06:28  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* TODO: Added an expanded description of the coding style, as
+	  pointed out by Marc
+
+2008-07-08 18:24  Marc Schoechlin <ms@256bit.org>
+
+	* src/rxvtmem.h: fixed headline
+
+2008-07-08 18:35  Marc Schoechlin <ms@256bit.org>
+
+	* src/command.c: trivial ident cleanup
+
+2008-07-09 19:34  Marc Schoechlin <ms@256bit.org>
+
+	* doc/mrxvt.1, share/mrxvtrc, share/mrxvtrc.sample, src/command.c:
+	  - added escape and percent interpolation for the 'MonitorCommand'
+	  configuration option
+	  - mapped the "MonitorTab AUTO" macro to the currently unused
+	  "Ctrl+Shift+g"
+	  combination
+	  - minor ident fixes in src/command.c
+
+2008-07-09 21:34  Gautam Iyer <gi1242@users.sourceforge.net>
+
+	* src/command.c: Fix indent
+
+2008-07-24 22:09  Jehan <hysseo@users.sourceforge.net>
+
+	* src/rxvt.h: Just removed HAVE_LIBX11 everywhere in the code:
+	  mandatory lib
+
