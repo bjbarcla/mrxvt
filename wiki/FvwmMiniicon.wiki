@@ -1,0 +1,189 @@
+#summary Dynamically changing the mini icon the mrxvt window.
+#sidebar Index
+
+This page describes how you can set up fvwm to set the mini icon
+of your mrxvt window to an icon reflecting the command running in
+the active tab.
+
+The first thing you need to do is set up your shell so that it
+sets the tab title to the name of the the current command.
+Instructions on how to do this can be found Tips.
+
+Next synchronize the window title to the title of the active tab
+by adding the line
+{{{
+Mrxvt.syncTabTitle:    True
+}}}
+to your ~/.mrxvtrc.
+
+Now you need to tell Fvwm to change the mini-icon of your
+terminal windows every time the tab title changes. First put the
+following lines in the file ~/.fvwm/seticon.pl:
+
+# ---------------------------------------------------------------------------- #
+#                                                                              #
+#                                USER SETTINGS                                 #
+#                                                                              #
+# ---------------------------------------------------------------------------- #
+
+
+#
+# Defining icons: The @regexps array contains a list (ordered by priority) of
+# hash refferences. Each hash refferences points to a hash where the keys of the
+# hash are the icon file names. The values of the hash are a regexp. There are
+# two special keys: "beg" and "end". The values corresponding to these special
+# keys is a regexp that is concatinated with the beginning and end
+# (respecitvely) of the icon regexp. The resulting regexp is then matched
+# against the window title. If it matches, the icon is used for the miniicon of
+# the window.
+#
+# You can define as many hashes as you want, with different "beg" and "end"
+# regexps. If the "beg" and "end" keys are not defined for a particular hash,
+# they are treated as "^" and "$". Remember also, that for any particular hash
+# the regexps you define are not guaranteed to match in the order you defined
+# them (since perl does not guarantee that hash entries are stored in any
+# particular order).
+#
+{{{
+my @regexps = (
+    # Some generic icons (matched against the whole window title).
+    {
+        'mimetypes/message.png'     => qr/mutt-.*\bVIM/,
+        'password.png'              => qr'.*\((/home/gautam|~)/crypt\S*\).*'
+    },
+
+    # Icons for programs (matched against a whole word at the start of the
+    # title)
+    {
+        end                             => qr/(?:\s|$)/,
+        'mutt.png'                      => qr/mutt/,
+        'mimetypes/man.png'             => qr/man/,
+        'web_terminal.png'              => qr/w3m/,
+        'mini.fvwm.xpm'         => qr/FvwmConsole/,
+        'kppp.png'                      => qr/(?:connect.sh|wvdial)/,
+        'tux.png'                       => qr/su/,
+        'gentoo.png'            => qr/(?:emerge:?|>>>)/
+    },
+
+    # Icons for filetypes (matched against the extension of the filename that is
+    # being edited in VIM).
+    {
+        beg                             => qr/^\S*\./,
+        end                             => qr/\s.*- [A-Z0-9]+$/,
+        'mimetypes/source_c.png'        => qr/c/,
+        'mimetypes/source_cpp.png'      => qr/(?:C|cpp)/,
+        'mimetypes/source_h.png'        => qr/h/,
+        'mimetypes/source_pl.png'       => qr/p[lm]/,
+        'mimetypes/source_py.png'       => qr/py/,
+        'mimetypes/shellscript.png'     => qr/(?:tc|c)?sh/,
+        'mimetypes/tex.png'             => qr/(?:sty|cls|tex)/,
+        'mimetypes/html.png'    => qr/html?/
+    },
+
+    # Defaults (matched last, against the whole window title).
+    {
+        'vim.png'                       => qr/.*- [A-Z0-9]+$/
+    }
+);
+
+
+#
+# Icon to use if nothing matches.
+#
+my $default = "xterm.png";
+
+# ---------------------------------------------------------------------------- #
+#                                                                              #
+#                              END USER SETTINGS                               #
+#                                                                              #
+# ---------------------------------------------------------------------------- #
+
+
+my ($winid, $name, $icon) = @b;
+my ($href, $key, $newicon);
+
+#print( "$winid, $name, $icon\n" );
+
+OUTER: foreach $href (@regexps)
+{
+    my ($beg, $end) = ($href->{beg}, $href->{end});
+    $beg = qr/^/ if( !defined( $beg ) );
+    $end = qr/$/ if( !defined( $end ) );
+
+    foreach $key ( keys( %$href ) )
+    {
+        next if( $key eq 'beg' || $key eq 'end' );
+
+        if( $name =~ m/$beg$href->{$key}$end/ )
+        {
+            $newicon = $key;
+            last OUTER;
+        }
+    }
+}
+
+$newicon = $default if( !defined($newicon) );
+
+if( $icon !~ m'/$newicon$' )
+{
+    cmd( "Test (I $newicon) WindowId $winid WindowStyle MiniIcon $newicon" );
+    #print( "WindowId $winid WindowStyle MiniIcon $newicon\n" )
+}
+}}}
+
+The seticon.pl file above is a perl script that matches regexp's
+against the window title, and appropriately sets the miniicon.
+The regexp / icon files are defined in the beginning of the file,
+so you can add or modify the list as needed.
+
+Next you need to tell fvwm to run the seticon.pl script everytime
+a window title changes. Add the following lines to
+~/.fvwm/perlwops.fvwm:
+{{{
+# Add to StartFunction so FvwmPerl is launched on startup
+Test (Start)  AddToFunc  StartFunction I Module FvwmPerl perlwops
+Test (!Start) KillModule FvwmPerl perlwops
+Test (!Start) Module     FvwmPerl perlwops
+
+
+#
+# Functions to sett the mini-icon of xterm / mrxvt windows based on the title
+#
+DestroyFunc     FnSetIcon
+AddToFunc       FnSetIcon
++ I SendToModule perlwops eval                              \
+    @b = ( '$[w.id]', $[w.name], '$[w.miniiconfile]' );     \
+    load( "seticon.pl" );
+
+DestroyModuleConfig SetIcon*
+# 2005-12-14: We could speed things up by not setting the Icon on undecorated /
+# borderless windows. However this has the undesired effect of having the wrong
+# miniicon in the pager and WindowList menu.
+*SetIcon: Cmd           'ThisWindow ("XTerm")'
+*SetIcon: window_name   "FnSetIcon"
+
+Test (Start)  AddToFunc  StartFunction I Module FvwmEvent SetIcon
+Test (!Start) KillModule FvwmEvent SetIcon
+Test (!Start) Module     FvwmEvent SetIcon
+}}}
+
+Now either Read perlwops.fvwm from a FvwmConsole in an already
+running fvwm session, or add the line
+{{{
+Read perlwops.fvwm
+}}}
+to your fvwm config after you have defined StartFunction.
+
+Finally you need a few icons to make things look good. If you
+don't have your favourites, then you can download my icons, and
+both the above scripts from the archive seticon-fvwm.tgz. (The
+perlwops.fvwm script from the archive does more than just set the
+miniicon. It provides functions to pack windows, etc. Comment
+them out if you don't plan on using them.)
+
+NOTE: You need fvwm-2.5.18 or higher for this to work correctly.
+The reason being that the fvwm variable [w.name] (which contains
+the window title) was not quoted in previous version. Since
+window titles can contain any character, passing this variable to
+shell / perl scripts is not possible unless it is quoted
+properly. Version 2.5.18 and up correctly quote [w.name]
