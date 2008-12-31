@@ -14,5 +14,11 @@
   * [Community Community]
   * [Links Links]
   * [Contact Contact]
+
   * [Contributing Contributing to Mrxvt]
+
   * [http://code.google.com/p/mrxvt/w/list Site Map]
+
+[http://sourceforge.net http://sflogo.sourceforge.net/sflogo.php?group_id=114665&amp;type=1]
+
+  * [http://sourceforge.net/projects/materm mrxvt SourceForge project page]
