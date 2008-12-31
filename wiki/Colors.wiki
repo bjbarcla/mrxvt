@@ -31,7 +31,17 @@ Here xxx and yyy are the color NUMBER respectively. The way 256 color terminals 
 
 =Mutt=
 
-Using 256 colors in mutt
+Mutt understands colors from 16--255 only by number (not name). On terminals which don't support 256 colors you get an error if you use any color over 16. Thus what I do is have two files [Colors8 colors.8] and [Colors256 colors.256] defining colors in each situation. Then source them in `~/.mutt/muttrc` via
+{{{
+source ~/.mutt/colors.`tty -s && tput colors || echo 8`
+}}}
+Finally create symlinks to the file `colors.16` via
+{{{
+cd ~/.mutt
+ln -s colors.8 colors.16
+ln -s colors.8 colors.2
+ln -s colors.8 colors.-1
+}}}
 
 =Shell=
 
