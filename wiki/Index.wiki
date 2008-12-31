@@ -10,7 +10,7 @@
     * [Troubleshooting Troubleshooting]
     * [Tips Tips and tricks]
       * [Colors Colors]
-    * [http://tinyurl.com/8m2ny8 FAQ]
+    * [http://materm.sourceforge.net/wiki/Main/Documentation?action=download&upname=faq.txt FAQ]
   * [Community Community]
   * [Links Links]
   * [Contact Contact]
