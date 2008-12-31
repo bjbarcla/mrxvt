@@ -89,13 +89,13 @@ Mrxvt.syncTabTitle:    True
 }}}
 
 =Can I set the mini-icon of the mrxvt window to reflect the command I am running?=
-    Not through mrxvt directly. But, if you use Fvwm the you can do this as described in this page.
+    Not through mrxvt directly. But, if you use Fvwm the you can do this as described in [FvwmMiniicon this page].
 
 =Can I have a fullscreen mrxvt window?=
     Of course! Start mrxvt with mrxvt --smoothResize --fullScreen to get a full screen window. You can also use the Ctrl+Shift+F keystroke to switch between a full screen and windowed terminal. Keep in mind though, that unless the --smoothResize option is enabled, your full screen terminal window might have a small border.
 
 =Can I use Dtach (a screen manager similar to the "GNU Screen" project) with Mrxvt?=
-    Yes you can! Instructions can be found here!
+    Yes you can! Instructions can be found [http://www.eskimo.com/~roger/programming/mrxvtanddtach.html here]!
 
 =Can I make the tabbar transparent, without the white casting color, like in mrxvt 0.4.2?=
     Yes you can! This is achieved by using the '-itabbg black' switch. An example of this would be:
@@ -112,13 +112,13 @@ mrxvt -tr -trs -ss plain -troughColor black
 }}}
 
 =How do I take full advantage of the 256 colors?=
-    See here for a full page of tips (shell, vim, mutt, and possibly more)
+    See [Colors here] for a full page of tips (shell, vim, mutt, and possibly more)
 
 =How to made tabs squared?=
     Starting from version 0.5.1 mrxvt has rounded tabs, but if you want to bring back old style of tabs, you must configure mrxvt with --with-tab-radius=0
 
 =Why do I have odd looking characters at times (like when I'm viewing a man page)?=
-    This may occur if you are using a UTF-8 locale. You can check this by typing 'locale' on the command line. To see a list of alternate locales type 'locale -a' at the command line. See http://www.madboa.com/geek/utf8/ for more details on locales.
+    This may occur if you are using a UTF-8 locale. You can check this by typing 'locale' on the command line. To see a list of alternate locales type 'locale -a' at the command line. See [http://www.madboa.com/geek/utf8/ http://www.madboa.com/geek/utf8/] for more details on locales.
 
 =Does mrxvt support UTF-8?=
     At the current time mrxvt does not fully support UTF-8, though Jimmy (a.k.a Terminator) is working on this. If you would like to work on this please feel free to, and submit a patch to the mailing list.
