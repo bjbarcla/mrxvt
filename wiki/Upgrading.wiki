@@ -4,7 +4,7 @@
 
 =What's different in mrxvt-0.5.4=
 
-[ChangeLog-0.5.4 ChangeLog]
+[http://mrxvt.googlecode.com/svn/wiki/ChangeLog-0.5.4 ChangeLog]
 
 =What's different in mrxvt-0.5.3=
 
