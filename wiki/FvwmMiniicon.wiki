@@ -19,7 +19,7 @@ to your ~/.mrxvtrc.
 Now you need to tell Fvwm to change the mini-icon of your
 terminal windows every time the tab title changes. First put the
 following lines in the file ~/.fvwm/seticon.pl:
-
+{{{
 # ---------------------------------------------------------------------------- #
 #                                                                              #
 #                                USER SETTINGS                                 #
@@ -44,7 +44,7 @@ following lines in the file ~/.fvwm/seticon.pl:
 # them (since perl does not guarantee that hash entries are stored in any
 # particular order).
 #
-{{{
+
 my @regexps = (
     # Some generic icons (matched against the whole window title).
     {
