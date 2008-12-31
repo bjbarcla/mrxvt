@@ -4,18 +4,13 @@
 = Screenshots =
 
 Here is one screen shot of mrxvt-0.5.0 with many tabs, a scroll-bar and showing a popup menu: 
-
-<wiki:comment>
-Images to be put into svn and links replaced with:
-http://mrxvt.googlecode.com/svn/wiki/
-</wiki:comment>
-
-[http://materm.sourceforge.net/images/v5screenshot1.png http://materm.sourceforge.net/images/v5small-screenshot1.png]
+                                
+[http://mrxvt.googlecode.com/svn/wiki/v5screenshot1.png http://mrxvt.googlecode.com/svn/wiki/v5small-screenshot1.png]
 
 Here are a few screenshots of the older versions (0.4.x) of mrxvt. 
 
-[http://materm.sourceforge.net/images/screenshot-1.png http://materm.sourceforge.net/images/small-screenshot-1.png]
-[http://materm.sourceforge.net/images/screenshot-2.png http://materm.sourceforge.net/images/small-screenshot-2.png]
-[http://materm.sourceforge.net/images/screenshot-3.png http://materm.sourceforge.net/images/small-screenshot-3.png]
-[http://materm.sourceforge.net/images/screenshot-4.png http://materm.sourceforge.net/images/small-screenshot-4.png]
-[http://materm.sourceforge.net/images/screenshot-5.png http://materm.sourceforge.net/images/small-screenshot-5.png]
+[http://mrxvt.googlecode.com/svn/wiki/screenshot-1.png http://mrxvt.googlecode.com/svn/wiki/small-screenshot-1.png]
+[http://mrxvt.googlecode.com/svn/wiki/screenshot-2.png http://mrxvt.googlecode.com/svn/wiki/small-screenshot-2.png]
+[http://mrxvt.googlecode.com/svn/wiki/screenshot-3.png http://mrxvt.googlecode.com/svn/wiki/small-screenshot-3.png]
+[http://mrxvt.googlecode.com/svn/wiki/screenshot-4.png http://mrxvt.googlecode.com/svn/wiki/small-screenshot-4.png]
+[http://mrxvt.googlecode.com/svn/wiki/screenshot-5.png http://mrxvt.googlecode.com/svn/wiki/small-screenshot-5.png]
