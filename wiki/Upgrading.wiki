@@ -8,26 +8,26 @@
 
 =What's different in mrxvt-0.5.3=
 
-[http://materm.svn.sourceforge.net/viewvc/materm/release-0.5.3/ChangeLog.old?revision=247&view=markup ChangeLog]
+[http://materm.svn.sourceforge.net/viewvc/materm/release-0.5.3/ChangeLog?revision=247&view=markup ChangeLog]
 
 =What's different in mrxvt-0.5.2=
 
-[http://materm.svn.sourceforge.net/viewvc/materm/release-0.5.2/ChangeLog.old?revision=191&view=markup ChangeLog]
+[http://materm.svn.sourceforge.net/viewvc/materm/release-0.5.2/ChangeLog?revision=191&view=markup ChangeLog]
 
-=The hold option does not work like it used to mrxvt-0.5.2 and up?=
+==The hold option does not work like it used to mrxvt-0.5.2 and up?==
 
 Yes. We changed it! As of 0.5.2, the hold option is no longer a boolean option, but takes a numeric argument. You can use this to decide if you want to keep a tab open based on the exit status of the child process. By default, mrxvt will only keep tabs open if the child did NOT exit normally, or the child exited with a non-zero status. See the man page for details.
 
-=The jumpScroll is not there in mrxvt-0.5.2 and up.=
+==The jumpScroll is not there in mrxvt-0.5.2 and up.==
 Yes. We removed it. We replaced it with two options: refreshLimit and skipPages. These allow you to fine tune jump scrolling much better. See the man page for details. 
 
 =What's different in mrxvt-0.5.1=
 
-[http://materm.svn.sourceforge.net/viewvc/materm/release-0.5.1/ChangeLog.old?revision=70&view=markup ChangeLog]
+[http://materm.svn.sourceforge.net/viewvc/materm/release-0.5.1/ChangeLog?revision=70&view=markup ChangeLog]
 
 A list of differences will be put up after the next release. For now, read the SVN commit logs, or the [http://materm.svn.sourceforge.net/viewvc/materm/release-0.5.1/ChangeLog?revision=70&view=markup ChangeLog] file in the source archive.
 
-=What's this new profile option in 0.5.1. How do I migrate?=
+==What's this new profile option in 0.5.1. How do I migrate?==
 
 Mrxvt-0.5.0 has a new "profile" feature intended to replace the vt%d.xx options. Here settings are associated to a "profile" instead of a tab. Tabs can be created on demand with any desired profile. (The earlier design led to some unresolvable bugs when the user moved tabs). Migrating to profiles is easy:
 
