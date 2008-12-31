@@ -1,24 +1,18 @@
 #summary Dynamically changing the mini icon the mrxvt window.
 #sidebar Index
+<wiki:toc max_depth="1" />
 
-This page describes how you can set up fvwm to set the mini icon
-of your mrxvt window to an icon reflecting the command running in
-the active tab.
+This page describes how you can set up fvwm to set the mini icon of your mrxvt window to an icon reflecting the command running in the active tab.
 
-The first thing you need to do is set up your shell so that it
-sets the tab title to the name of the the current command.
-Instructions on how to do this can be found Tips.
+The first thing you need to do is set up your shell so that it sets the tab title to the name of the the current command. Instructions on how to do this can be found Tips.
 
-Next synchronize the window title to the title of the active tab
-by adding the line
+Next synchronize the window title to the title of the active tab by adding the line
 {{{
 Mrxvt.syncTabTitle:    True
 }}}
 to your ~/.mrxvtrc.
 
-Now you need to tell Fvwm to change the mini-icon of your
-terminal windows every time the tab title changes. First put the
-following lines in the file ~/.fvwm/seticon.pl:
+Now you need to tell Fvwm to change the mini-icon of your terminal windows every time the tab title changes. First put the following lines in the file ~/.fvwm/seticon.pl:
 {{{
 # ---------------------------------------------------------------------------- #
 #                                                                              #
@@ -167,23 +161,12 @@ Test (!Start) KillModule FvwmEvent SetIcon
 Test (!Start) Module     FvwmEvent SetIcon
 }}}
 
-Now either Read perlwops.fvwm from a FvwmConsole in an already
-running fvwm session, or add the line
+Now either Read perlwops.fvwm from a FvwmConsole in an already running fvwm session, or add the line
 {{{
 Read perlwops.fvwm
 }}}
 to your fvwm config after you have defined StartFunction.
 
-Finally you need a few icons to make things look good. If you
-don't have your favourites, then you can download my icons, and
-both the above scripts from the archive seticon-fvwm.tgz. (The
-perlwops.fvwm script from the archive does more than just set the
-miniicon. It provides functions to pack windows, etc. Comment
-them out if you don't plan on using them.)
+Finally you need a few icons to make things look good. If you don't have your favourites, then you can download my icons, and both the above scripts from the archive seticon-fvwm.tgz. (The perlwops.fvwm script from the archive does more than just set the miniicon. It provides functions to pack windows, etc. Comment them out if you don't plan on using them.)
 
-NOTE: You need fvwm-2.5.18 or higher for this to work correctly.
-The reason being that the fvwm variable [w.name] (which contains
-the window title) was not quoted in previous version. Since
-window titles can contain any character, passing this variable to
-shell / perl scripts is not possible unless it is quoted
-properly. Version 2.5.18 and up correctly quote [w.name]
+NOTE: You need fvwm-2.5.18 or higher for this to work correctly. The reason being that the fvwm variable [w.name] (which contains the window title) was not quoted in previous version. Since window titles can contain any character, passing this variable to shell / perl scripts is not possible unless it is quoted properly. Version 2.5.18 and up correctly quote [w.name]
