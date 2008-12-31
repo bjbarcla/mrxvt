@@ -1,0 +1,4 @@
+#summary Screenshot of version 0.4.0
+#sidebar Index
+
+http://mrxvt.googlecode.com/svn/wiki/screenshot-1.png
