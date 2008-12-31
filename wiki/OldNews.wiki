@@ -1,8 +1,6 @@
 #summary Older news about the mrxvt project.
 #sidebar Index
 
-=Older News=
-
 Feburary 06, 2005
     Mrxvt version 0.3.13 is released! This is a major bug fix release. Sorry to disappoint you that we could not reach 0.4.0 right now. I know you are eagerly waiting for the magic number 0.4.0. :p The delay is because a major bug was found and thus we need more test on the fix. In particular, please open multiple tabs simultaneously and let each tab do some kind of busy job that refreshes the screen constantly, e.g., `wget --progress=dot big.file`. Then switch to another tab and work in it to see if there is any misbehavior, like crashes (yes, not kidding ;-)), slow response (expected if your machine is slow!!!), etc. If you meet crash, please send me your mrxvt binary and coredump so that I can debug it. Be sure to build mrxvt with debug support. I really hope 0.4.0 is rock solid so that I can concentrate on 0.5.x development branch after releasing it.
 January 14, 2005
