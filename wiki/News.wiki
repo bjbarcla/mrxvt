@@ -1,8 +1,6 @@
 #summary News about the mrxvt project.
 #sidebar Index
 
-= News =
-
 Aug 04, 2008
     It's been another year. We're still alive :). Hmm. Maybe I've said this before... Yet another bugfix release, but a few new features have been added. We also had a few devs (Jehan, Frederick and Marc) join mrxvt, and actively contribute! So hopefully you'll see more frequent releases in future.
 
