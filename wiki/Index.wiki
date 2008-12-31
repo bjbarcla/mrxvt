@@ -14,9 +14,6 @@
   * [Community Community]
   * [Links Links]
   * [Contact Contact]
-
   * [Contributing Contributing to Mrxvt]
-
   * [http://code.google.com/p/mrxvt/w/list Site Map]
-
   * [http://sourceforge.net/projects/materm mrxvt project page]
