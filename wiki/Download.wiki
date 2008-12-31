@@ -39,21 +39,21 @@ svn checkout https://materm.svn.sourceforge.net/svnroot/materm/mrxvt05b
 =Binary download=
 
 ==Slackware Linux==
-    You can download binary packages built for the Slackware current tree from sourceforge.net. They should work for Slackware 10.0 too.
+    You can download [http://sourceforge.net/projects/materm/ binary packages] built for the Slackware current tree from sourceforge.net. They should work for Slackware 10.0 too.
 ==Gentoo Linux==
-    Mrxvt is already in the portage! If you want a live ebuild (i.e. want an ebuild that will download mrxvt from latest subversion sources and install it for you), then look here. Alternately add the devnull overlay using layman.
+    Mrxvt is already in the portage! If you want a live ebuild (i.e. want an ebuild that will download mrxvt from latest subversion sources and install it for you), then look [http://bugs.gentoo.org/show_bug.cgi?id=220059 here]. Alternately add the devnull overlay using [http://devnull.tuqsnet.org/ layman].
 ==SuSE Linux==
-    Mrxvt rpm packages for SuSE 9.0, 9.1, 9.2, 9.3 and 10.0 are available at Guru's RPM site. They are maintained by Pascal Bleser <guru at unixtech dot be>. Let us thank him for the nice work!
+    [http://linux01.gwdg.de/~pbleser/rpm-navigation.php?cat=/Utilities/mrxvt/ Mrxvt rpm] packages for SuSE 9.0, 9.1, 9.2, 9.3 and 10.0 are available at  Guru's RPM site. They are maintained by Pascal Bleser <guru at unixtech dot be>. Let us thank him for the nice work!
 ==!RedHat/Fedora Linux==
-    Mrxvt rpm for Fedora Core 3 are available at sourceforge.net. Thanks to Jingyu Zhou <jingyuzhou AT hotmail dot com> for building it for us!
+    [http://sourceforge.net/projects/materm/ Mrxvt rpm] for Fedora Core 3 are available at sourceforge.net. Thanks to Jingyu Zhou <jingyuzhou AT hotmail dot com> for building it for us!
 ==Debian Linux==
-    Binaries of debian for i386 are available at sourceforge.net. Xiong Jiang <jxiong at offtopic dot org> initiated these builds, and they are now maintained by Qingning Huo <qhuo at users dot sourceforge dot net>. You can also download them from Qingning's website.
+    [http://sourceforge.net/projects/materm/ Binaries] of debian for i386 are available at sourceforge.net. Xiong Jiang <jxiong at offtopic dot org> initiated these builds, and they are now maintained by Qingning Huo <qhuo at users dot sourceforge dot net>. You can also download them from http://mayhq.org/debian/ [Qingning's website].
 ==Mandrake Linux==
-    Mrxvt rpm for Mandrake 10.1 are available at sourceforge.net. Thanks to Qi Guo <csyfek AT gmail dot com> for building it for us!
+    [http://sourceforge.net/projects/materm/ Mrxvt rpm] for Mandrake 10.1 are available at sourceforge.net. Thanks to Qi Guo <csyfek AT gmail dot com> for building it for us!
 ==FreeBSD/NetBSD/OpenBSD==
-    Mrxvt is already in the FreeBSD ports, NetBSD's pkgsrc, and OpenBSD's ports! But the version may be a little out-of-date.
+    Mrxvt is already in the FreeBSD ports, NetBSD's [http://www.pkgsrc.org/ pkgsrc], and OpenBSD's ports! But the version may be a little out-of-date.
 ==Solaris (SPARC)==
-    Mrxvt binaries are available for download at sourceforge.net. Thanks to Le Chen for building it.
+    [http://sourceforge.net/projects/materm/ Mrxvt binaries] are available for download at sourceforge.net. Thanks to Le Chen for building it.
 ==Solaris (x86)==
     currently not available
 ==Cygwin==
@@ -61,7 +61,7 @@ svn checkout https://materm.svn.sourceforge.net/svnroot/materm/mrxvt05b
 ==HP-UX==
     currently not available
 ==Mac OS X==
-    Available via macports. Thanks to Boey Maun Suang for patching and building it.
+    Available via [http://www.macports.org/ macports]. Thanks to Boey Maun Suang for patching and building it.
 ==Tru64/OSF==
     currently not available
 ==IRIX==
