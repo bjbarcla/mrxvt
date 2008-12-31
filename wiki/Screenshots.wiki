@@ -6,6 +6,7 @@ Here is a screen shot of mrxvt-0.5.0 with many tabs, a scroll-bar and showing a 
 ScreenShotv5 http://mrxvt.googlecode.com/svn/wiki/v5small-screenshot1.png
 
 Here are a few screenshots of the older versions (0.4.x) of mrxvt:
+<a href="http://mrxvt.googlecode.com/svn/wiki/v5screenshot1.png"> http://mrxvt.googlecode.com/svn/wiki/v5small-screenshot1.png</a>
 
  * ScreenShot1 http://mrxvt.googlecode.com/svn/wiki/small-screenshot-1.png
  * ScreenShot2 http://mrxvt.googlecode.com/svn/wiki/small-screenshot-2.png
