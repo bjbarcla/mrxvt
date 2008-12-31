@@ -8,6 +8,7 @@
   * [Documentation Documentation]
     * [Upgrading Upgrading]
     * [Troubleshooting Troubleshooting]
+    * [Tips Tips and tricks]
   * [Community Community]
   * [Links Links]
   * [Contact Contact]
