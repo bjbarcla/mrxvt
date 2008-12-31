@@ -12,7 +12,7 @@ and your terminfo should now reflect that your terminal has 256 colors. (Make su
 
 =Vim=
 
-Vim can use 256 colors and give you an almost identical look in your console and GUI version of Vim. All you have to do is use a color scheme that takes advantage of the 256 color support. You can try xterm16, which was written (by me) with this in mind. (The documentation also has a few words on how to get 256 colors working properly in Vim).
+Vim can use 256 colors and give you an almost identical look in your console and GUI version of Vim. All you have to do is use a color scheme that takes advantage of the 256 color support. You can try [http://www.vim.org/scripts/script.php?script_id=795 xterm16], which was written (by me) with this in mind. (The documentation also has a few words on how to get 256 colors working properly in Vim).
 
 Alternately, if you choose to define your own colors in Vim, do something like this:
 {{{
