@@ -9,7 +9,7 @@
     * [Upgrading Upgrading]
     * [Troubleshooting Troubleshooting]
     * [Tips Tips and tricks]
-      * [Colours Colours]
+      * [Colors Colors]
     * [http://materm.sourceforge.net/wiki/Main/Documentation?action=download&upname=faq.txt FAQ]
   * [Community Community]
   * [Links Links]
