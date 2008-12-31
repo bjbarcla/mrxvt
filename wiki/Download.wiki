@@ -7,11 +7,13 @@
 
 == Unstable branch ==
 
-  * Release: [http://prdownloads.sourceforge.net/materm/mrxvt-0.5.0.tar.gz?download mrxvt-0.5.0]
-  * Release: [http://prdownloads.sourceforge.net/materm/mrxvt-0.5.1.tar.gz?download mrxvt-0.5.1]
-  * Release: [http://prdownloads.sourceforge.net/materm/mrxvt-0.5.2.tar.gz?download mrxvt-0.5.2] (Also use the supplied [http://prdownloads.sourceforge.net/materm/no_debug_x.patch?download no_debug_x] patch.)
-  * Release: [http://prdownloads.sourceforge.net/materm/mrxvt-0.5.3.tar.gz?download mrxvt-0.5.3] (Also use the supplied [http://prdownloads.sourceforge.net/materm/no-scroll-with-buffer-mrxvt-0.5.3.patch?download no-scroll-with-buffer] patch.)
-  * Release: [http://prdownloads.sourceforge.net/materm/mrxvt-0.5.4.tar.gz?download mrxvt-0.5.4]
+  * Release: [http://prdownloads.sourceforge.net/materm/mrxvt-0.5.0.tar.gz?download mrxvt-0.5.0] [http://materm.sourceforge.net/wiki/FAQ/Upgrading?action=download&upname=ChangeLog-0.5.0.txt ChangeLog]
+  * Release: [http://prdownloads.sourceforge.net/materm/mrxvt-0.5.1.tar.gz?download mrxvt-0.5.1] [http://materm.svn.sourceforge.net/viewvc/materm/release-0.5.1/ChangeLog?revision=70&view=markup ChangeLog]
+  * Release: [http://prdownloads.sourceforge.net/materm/mrxvt-0.5.2.tar.gz?download mrxvt-0.5.2] [http://materm.svn.sourceforge.net/viewvc/materm/release-0.5.2/ChangeLog?revision=191&view=markup ChangeLog]
+ (Also use the supplied [http://prdownloads.sourceforge.net/materm/no_debug_x.patch?download no_debug_x] patch.)
+  * Release: [http://prdownloads.sourceforge.net/materm/mrxvt-0.5.3.tar.gz?download mrxvt-0.5.3] [http://materm.svn.sourceforge.net/viewvc/materm/release-0.5.3/ChangeLog?revision=247&view=markup ChangeLog]
+ (Also use the supplied [http://prdownloads.sourceforge.net/materm/no-scroll-with-buffer-mrxvt-0.5.3.patch?download no-scroll-with-buffer] patch.)
+  * Release: [http://prdownloads.sourceforge.net/materm/mrxvt-0.5.4.tar.gz?download mrxvt-0.5.4] [http://mrxvt.googlecode.com/svn/wiki/ChangeLog-0.5.4 ChangeLog]
   * Subversion: You can obtain the latest development version from the subversion repository by typing
 
 {{{
