@@ -1,4 +1,4 @@
-#summary Screenshot 1
+#summary Screenshot of mrxvt-0.5.0 with many tabs, a scroll-bar and showing a popup menu
 #sidebar Index
 
 http://mrxvt.googlecode.com/svn/wiki/v5screenshot1.png
