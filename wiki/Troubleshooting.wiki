@@ -1,0 +1,26 @@
+#summary Troubleshooting mrxvt.
+#sidebar Index
+
+=General=
+==Configuration==
+
+Probably the simplest step you can take is to make sure it's not just a configuration problem. Comment out the likely suspects or, for a completely blank slate, try
+{{{
+ mrxvt -cf /dev/null &
+}}}
+to spawn a new instance with compiled-in defaults. If the problem goes away, it's a configuration problem. Even if it doesn't go away, it may manifest differently and provide clues as to what the problem is.
+
+==Version==
+
+Next, you could make sure you're running the [Downloading latest version]. It may be a bug that's already been fixed. You could even checkout the very latest code from subversion, which may have fixed the problem (though it may have introduced others ;) ).
+
+=TERM=
+
+As mentioned on [Upgrading Upgrading], frequently the problem is with term{info,cap} configuration. To quickly test this out, try
+{{{
+ mrxvt -tn xterm &
+}}}
+or other TERM values. If there is a term{info,cap} problem, in addition to distro-specific steps, you might also try the *rxvt.term* files included in the distribution.
+
+=Specific=
+(FIXME: add specific 'I have problem foo; use solution bar' items.) 
