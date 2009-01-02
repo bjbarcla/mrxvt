@@ -1,9 +1,9 @@
-#summary One-sentence summary of this page.
+#summary FAQ - using fonts.
 #sidebar Index
 
 {{{
 --------------------------------------------------------------------------
-Frequently Asked Questions (FAQ) - fonts
+Frequently Asked Questions (FAQ) - using fonts
 --------------------------------------------------------------------------
 
 
