@@ -8,7 +8,7 @@ http://mrxvt.googlecode.com/svn/wiki/mrxvt.png
   * [Screenshots Screenshots]
   * [Download Download]                      
   * [Documentation Documentation]
-    * [http://materm.sourceforge.net/wiki/Main/Documentation?action=download&upname=faq.txt FAQ]
+    * [FaqIndex FAQ]
     * [Upgrading Upgrading]
     * [Troubleshooting Troubleshooting]
     * [Tips Tips and tricks]
