@@ -1,0 +1,194 @@
+#summary FAQ - using tabs
+#sidebar Index
+{{{
+--------------------------------------------------------------------------
+Frequently Asked Questions (FAQ) - using tabs
+--------------------------------------------------------------------------
+
+
+Q:  When I run mrxvt with multiple tabs, why does the output of the `w' command
+    shows many users are using the system?
+
+A:  This is because each mrxvt tab logs itself in an entry of the utmp file. If
+    you do not want this feature, remove the setuid permission from mrxvt binary
+    and do not build mrxvt with utempter support.
+
+-----
+
+Q:  How to start mrxvt with multiple tabs initially?
+
+A   You can set the number of tabs you want in ~/.mrxvtrc as the following
+    example:
+
+	mrxvt.initProfileList:  0,0,0
+
+    Alternatively, you can set it using command line option -ip.
+
+-----
+
+Q:  How do I let each tab execute different applications when mrxvt starts?
+
+A:  You can set command for each tab in ~/.mrxvtrc as the following example:
+
+	Mrxvt.profile1.background:	#000040
+	Mrxvt.profile1.command:	!mc
+	Mrxvt.profile1.tabTitle:	"Midnight Commander"
+
+	Mrxvt.profile2.command: 	telnet www.mitbbs.com
+	Mrxvt.initProfileList:  	0,1,2
+
+    This will open three tabs on startup containing the shell, mc and telnet.
+    See /etc/mrxvt/mrxvtrc.sample for a more complete example.
+
+    If you only want to change the tab command in other tabs (and not the
+    background / saveLines etc), then you can use the NewTab macro as follows:
+
+	Mrxvt.macro.Ctrl+Shift+F1:	NewTab "man mrxvt" man mrxvt
+	Mrxvt.macro.Ctrl+Shift+b:	NewTab bash
+	Mrxvt.macro.Ctrl+Shift+v:	NewTab "Vim" !vim
+
+-----
+
+Q:  How to change the title of a tab after mrxvt starts?
+
+A:  You can select some text in the mrxvt terminal and press the hot key
+    combinations: Ctrl+Shift+s, Shift+Delete or middle click with the mouse. The
+    tab title will be changed to the selected text. Currently, the selected text
+    must be in the same mrxvt terminal.
+
+    You can also change the tab title through escape sequence.
+    
+	$ echo -ne "\e]62;New tab title\a"
+
+    Alternately use compile settitle.c, or use the perl script mrxvtset.pl.
+-----
+
+Q:  How do I set the tab title to the current command?
+
+A:  Bash users add the following to your ~/.bashrc:
+
+    # Change the window title of X terminals 
+    if [[ $TERM =~ "xterm|rxvt" ]]; then
+	# set -o functrace
+	if [[ -n $MRXVT_TABTITLE ]]; then
+	    trap 'echo -ne "\e]61;${BASH_COMMAND//\"/} (${PWD/$HOME/~})\a"' DEBUG
+	else
+	    trap 'echo -ne "\e]0;${BASH_COMMAND//\"/} (${PWD/$HOME/~})\a"' DEBUG
+	fi
+    fi
+
+    Alternately (for tcsh), if you want your current command displayed in
+    your tab title, add the following lines to your ~/.tcshrc
+
+	# Change the window title of X terminals 
+	set backslash_quote
+	if( $?DISPLAY && $?TERM ) then
+	    if( $?MRXVT_TABTITLE ) then
+		# Set the tab title for mrxvt
+		alias jobcmd 'echo -n \\\\033]61\;\!#:q  \($cwd\) \\\\007 > /dev/stderr'
+		alias cwdcmd 'echo -n \\\\033]61\;\!#:q  \($cwd\) \\\\007 > /dev/stderr'
+	    else
+		# Set the window title for xterm
+		alias jobcmd 'echo -n \\\\033]0\;\!#:q  \($cwd\) \\\\007 > /dev/stderr'
+		alias cwdcmd 'echo -n \\\\033]0\;\!#:q  \($cwd\) \\\\007 > /dev/stderr'
+	    endif
+	endif
+	unset backslash_quote
+
+-----
+
+Q:  How to dynamically change the title of the mrxvt window so that it is the
+    same as the current active tab when I switch to a new tab?
+
+A:  You can set X resources `syncTabTitle' to true or run mrxvt with -stt
+    option.
+
+-----
+
+Q:  Why cannot I close a tab? The close button is grey!
+
+A:  Most probably, you have enabled the protectSecondary resource and you are
+    running an application, like vi and mc that is using the secondary screen in
+    the current tab. Mrxvt considers this tab being protected and disallows you
+    to close it. To close the tab, please exit the application first. To disable
+    this option, you can modify the ~/.mrxvtrc file or run mrxvt with +ps
+    option.
+
+-----
+
+Q:  Is there any keyboard combination to manipulate the tabs?
+
+A:  Yes. Please read the man page. Mrxvt currently support the default
+    gnome-terminal and konsole combinations. If you prefer your own
+    combinations, you can define them in the configuration file as well. Please
+    refer to the man page for details.
+
+-----
+
+Q:  Can I change the color of tab background and text?
+
+A:  Yes you can. You can use command line option to set foreground and
+    background color of active or inactive tabs like this:
+
+	$ mrxvt -tabfg blue -tabbg grey -itabfg black -itabbg dark
+	
+    Or you can set them in ~/.mrxvtrc like this:
+
+	! text color of active tab
+	Mrxvt.tabForeground:  blue
+	! background color of active tab
+	Mrxvt.tabBackground:  grey
+	! text color of inactive tab
+	Mrxvt.itabForeground: black
+	! background color of inactive tab
+	Mrxvt.itabBackground: dark
+
+    Or you can use an escape sequence to change it dynamically (see the man
+    page).
+
+-----
+
+Q:  I notice that sometimes there is a dash-dot frame around the title of
+    inactive tabs. What has happened? Is it a bug?
+
+A:  This is a new feature introduced from 0.3.9. This indicates that something
+    has happened in the inactive tab, and you probably should check it.
+
+    You can try using the -htb option to ensure that inactive tabs are
+    highlighted only when a bell is sounded by that tab.
+
+-----
+
+Q:  I notice that the inactive tab is highlighted by the dash-dot frame, but
+    after I switch to it, I see nothing happened. What is wrong with it?
+
+A:  This is because you might be running some programs in the inactive tab, like
+    pine. These programs have some features to refresh the screen periodically,
+    though the content of the screen has not changed. Mrxvt detects the refresh
+    and thinks the screen has changed. It is difficult to tell whether the
+    content of the screen is truly changed in this case.
+
+    You can try using the -htb option to ensure that inactive tabs are
+    highlighted only when a bell is sounded by that tab.
+
+-----
+
+Q:  I like to use command line options to create a new tab in the current mrxvt
+    terminal and execute some commands. For example, if I run command `mrxvt
+    --new-tab -e pine' in a mrxvt terminal, the current terminal will open a new
+    tab and run pine in it. Can you implement it for me?
+
+A:  Unfortunately, no. This is a dangerous feature that can cause serious
+    security problems. For details about the security problem, consult to the
+    following link:
+
+	http://www.digitaldefense.net/labs/papers/Termulation.txt
+
+    As of mrxvt-0.5.0, you can have macros (or menu items) that open a new tab
+    and execute your favourite program in it (but you have to press a key or
+    select from a menu in your mrxvt window). Multiple window support is planned
+    in the near future, and maybe then something will be done about this issue
+    after multiple window support is implemented.
+
+-----
+}}}
