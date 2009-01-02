@@ -1,4 +1,5 @@
 #summary Color definitions for mutt using 256 colors
+#sidebar Index
 {{{
 #color object	 foreground	background
 color normal     color244	default	 # normal text
