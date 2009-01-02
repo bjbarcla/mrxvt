@@ -2,8 +2,8 @@
 #sidebar Index
 
 {{{
-,--------------------------------------------------------------------------
-			Frequently Asked Questions (FAQ) - configure, build, install
+--------------------------------------------------------------------------
+Frequently Asked Questions (FAQ) - configure, build, install
 --------------------------------------------------------------------------
 
 Q:  How to build mrxvt, since I cannot find the configure script as usual!?
