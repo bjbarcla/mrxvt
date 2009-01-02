@@ -1,4 +1,5 @@
 #summary Color definitions for mutt using only the standard colors
+#sidebar Index
 {{{
 
 #color object	 foreground	background
