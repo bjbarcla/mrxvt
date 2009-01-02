@@ -9,3 +9,5 @@
  * FaqTabs - using tabs
  * FaqKeys - keys amd keyboards
  * FaqMisc - miscellany 
+
+ * [http://materm.sourceforge.net/wiki/Main/Documentation?action=download&upname=faq.txt The whole thing on one page].
