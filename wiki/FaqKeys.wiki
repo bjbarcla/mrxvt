@@ -2,7 +2,7 @@
 #sidebar Index
 {{{
 --------------------------------------------------------------------------
-			Frequently Asked Questions (FAQ) - keys
+Frequently Asked Questions (FAQ) - keys
 --------------------------------------------------------------------------
 
 Q:  Shift+Left/Right do not always work. Ctrl+Shift+6 does not do anything.
