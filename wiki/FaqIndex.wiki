@@ -1,5 +1,5 @@
 #summary One-sentence summary of this page.
-#sideBar Index
+#sidebar Index
 
  * FaqMeta - about mrxvt
  * FaqBuild - configuring, building & installing mrxvt
