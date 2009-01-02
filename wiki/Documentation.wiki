@@ -14,7 +14,6 @@ FIXME: Files to be linked from svn rather than sourceforge
 
 =Frequently asked questions=
   * Browse [FaqIndex FAQ categories]
-  * Official FAQ supplied with the mrxvt source archive: [http://materm.sourceforge.net/wiki/Main/Documentation?action=download&upname=faq.txt faq.txt].
   * How do I [Contributing contribute] to the mrxvt wiki?
   * [Upgrading Upgrading] to mrxvt-0.5.x
   * [Troubleshooting Troubleshooting]
