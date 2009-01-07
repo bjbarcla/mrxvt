@@ -13,6 +13,8 @@ http://mrxvt.googlecode.com/svn/wiki/mrxvt.png
     * [Troubleshooting Troubleshooting]
     * [Tips Tips and tricks]
       * [Colors Colors]
+    * [Developers information]
+      * [UTF-8 branch's specific information]
   * [Community Community]
   * [Links Links]
   * [Contact Contact]
