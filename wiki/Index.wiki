@@ -14,7 +14,7 @@ http://mrxvt.googlecode.com/svn/wiki/mrxvt.png
     * [Tips Tips and tricks]
       * [Colors Colors]
     * [Developers information]
-      * [UTF-8 branch's specific information]
+      * [UTF-8 branch specific information]
   * [Community Community]
   * [Links Links]
   * [Contact Contact]
