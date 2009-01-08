@@ -1,5 +1,6 @@
 #summary Information for developers wishing to improve or maintain mrxvt.
 #labels Phase-Implementation
+#sidebar Index
 
 = Introduction =
 
