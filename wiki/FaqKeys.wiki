@@ -201,4 +201,42 @@ A:  Rather than have mrxvt try to accomodate all the various possible keyboard
     ~/.mrxvtrc.
 
 -----
+
+Q:  Sometimes you need to log into a remote system which lacks a decent rxvt 
+    terminfo entry. The recommedation here is to set TERM=xterm (or to use the 
+    option '-tn xterm') to get something close. But then Home and End keys don't 
+    work as expected.
+
+A:  Add a mapping in ~/.mrxvtrc:
+
+Mrxvt.macro.Home:             Str \eOH
+Mrxvt.macro.End:              Str \eOF
+
+    These additional mappings may also help:
+
+Mrxvt.macro.Shift+Home:       Str \e[1;2H
+Mrxvt.macro.Shift+End:        Str \e[1;2F
+Mrxvt.macro.Shift+Ctrl+Left:  Str \e[1;6D
+Mrxvt.macro.Shift+Ctrl+Right: Str \e[1;6C
+
+-----
+
+Q:  Alt-1 (and Alt-2, ... etc ) don't work in readline (bash).
+
+A:  Put these in your ~/.mrxvtrc file to let bash see the keystrokes which are 
+    otherwise trapped by mrxvt and mapped to "GotoTab n":
+
+Mrxvt.macro.Alt+1:           Dummy
+Mrxvt.macro.Alt+2:           Dummy
+Mrxvt.macro.Alt+3:           Dummy
+Mrxvt.macro.Alt+4:           Dummy
+Mrxvt.macro.Alt+5:           Dummy
+Mrxvt.macro.Alt+6:           Dummy
+Mrxvt.macro.Alt+7:           Dummy
+Mrxvt.macro.Alt+8:           Dummy
+Mrxvt.macro.Alt+9:           Dummy
+Mrxvt.macro.Alt+0:           Dummy
+
+-----
+
 }}}
