@@ -19,44 +19,41 @@ Mrxvt.macro.Primary+Add+Ctrl+slash: NewTab "(Search)" /bin/sh -c 'view +"syn off
     Yes. The instructions depend on which shell you use.
     If you use bash version 3.1 or later, then keep in mind that a few distributions set PROMPT_COMMAND in a manner that destroys the current tab title. You should either unset it, or set it to something useful. The following code snippet sets the tab title to the current command, and sets PROMPT_COMMAND to set your bash prompt to include a shortened version (3 path components) of the working directory in your shell prompt. Put this somewhere in your ~/.bashrc: (Make sure it is only read by interactive shells. E.g. do something like [[ $- != *i* ]] && return in the beginning of ~/.bashrc)
 {{{
-# Function to set tab title
 function set_title()
 {
-[[ "$BASH_COMMAND" == "$PROMPT_COMMAND" ]] && return
+    [[ "$BASH_COMMAND" == "$PROMPT_COMMAND" ]] && return
 
-echo -ne "\e]0;" > /dev/stderr
-[[ $USER == root ]] && echo -nE "su -- " > /dev/stderr
-echo -nE  "$BASH_COMMAND (${PWD/#$HOME/~})" > /dev/stderr
-echo -ne "\a" > /dev/stderr
+    echo -ne "\033]0;" > /dev/tty
+    #[[ $USER == root ]] && echo -nE "su -- " > /dev/tty
+    echo -nE  "$BASH_COMMAND (${PWD/#$HOME/~})" > /dev/tty
+    echo -ne "\007" > /dev/tty
 }
 
-# Function to set shell prompt
 function set_prompt()
 {
-# Also set the command prompt to only expand the last three directories
-local pwdtail=${PWD/#$HOME/\~}
-[[ $pwdtail =~ ^(/[^/]+|~)/.+/([^/]+/[^/]+)$ ]] && \
-    pwdtail="${BASH_REMATCH[1]}/.../${BASH_REMATCH[2]}"
-PS1="${PS1_HEAD}${pwdtail}${PS1_TAIL}"
+    # Also set the command prompt to only expand the last three directories
+    local pwdtail=${PWD/#$HOME/\~}
+    [[ $pwdtail =~ ^(/[^/]+|~)/.+/([^/]+/[^/]+)$ ]] &&	\
+        pwdtail="${BASH_REMATCH[1]}/.../${BASH_REMATCH[2]}"
+    PS1="${PS1_HEAD}${pwdtail}${PS1_TAIL}"
 }
 
 # Set shell prompt
 PS1_HEAD=
 if [[ -n $SSH_CONNECTION ]]; then
-PS1_HEAD+='\[\e[33m\]'
-[[ $USER == "root" ]] && PS1_HEAD+="root@"
-PS1_HEAD+='\h:'
+    PS1_HEAD+='\[\e[33m\]'
+    [[ $USER == "root" ]] && PS1_HEAD+="root@"
+    PS1_HEAD+='\h:'
 else
-[[ $USER == "root" ]] && PS1_HEAD+='\[\e[33m\]root:'
+    [[ $USER == "root" ]] && PS1_HEAD+='\[\e[33m\]root:'
 fi
 PS1_HEAD+='\[\e[32m\]'
 PS1_TAIL='\[\e[0m\]$ '
-PROMPT_COMMAND=set_prompt
 
-# Change the window title of X terminals
-if [[ $TERM =~ "xterm|rxvt" ]]; then
-# set -o functrace
-trap 'set_title' DEBUG
+# Change the window title of X terminals 
+if [[ $TERM =~ xterm|rxvt && -z $NO_TITLE ]]; then
+    set +o functrace
+    trap 'set_title' DEBUG
 fi
 }}}
 
@@ -64,9 +61,9 @@ fi
 {{{
 # Change the window title of X terminals
 set backslash_quote
-if( $TERM =~ {xterm,rxvt}* ) then
-    alias jobcmd echo -n '"\e]0;"\!#:q  "($cwd)\a"' \> /dev/stderr
-    alias cwdcmd echo -n '"\e]0;"\!#:q  "($cwd)\a"' \> /dev/stderr
+if ( $TERM =~ xterm* || $TERM =~ rxvt* ) then
+    alias jobcmd echo -n '"\e]0;"\!#:q "($cwd)\a"' \> /dev/tty
+    alias cwdcmd echo -n '"\e]0;"\!#:q "($cwd)\a"' \> /dev/tty
 endif
 unset backslash_quote
 }}}
@@ -74,12 +71,33 @@ unset backslash_quote
     If you use zsh, then add the following to your ~/.zshrc:
 {{{
 # Change the window title of X terminals
-if [[ $TERM =~ "xterm|rxvt" ]]; then
-    # There are lots of other info to add. See 'prompt expansion' in
-    # man zshmisc
-    precmd()  { print -Pn "\e]0;%~\a"} ;
-    preexec() { print -Pn "\e]0;$1\a"} ;
+if [[ $TERM =~ '^(xterm|m?rxvt)' ]]; then
+    function preexec()
+    {
+	typeset -g prevcmd;
+
+	[[ -n $2 ]] && prevcmd=$2
+	{ print -n "\e]0;"; print -Rn $prevcmd; print -Pn " (%~)\a" } > /dev/tty
+    }
+
+    # Add [done] to title when command completes.
+    function precmd()
+    {
+	[[ -n $prevcmd ]] && preexec "" "$prevcmd [done]"
+    }
+
+elif [[ $TERM == screen* ]]; then
+    function preexec()
+    {
+	echo -n "\ek${2%% *}\e\\" > /dev/tty
+    }
+
 fi
+[[ -n $functions[preexec] ]] && \
+    function chpwd()
+    {
+	preexec
+    }
 }}}
 
     NOTE: The above will only work starting from mrxvt-0.5.1 and up. On previous versions replace ]0 with ]2, ]61, or ]62.
