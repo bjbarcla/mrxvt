@@ -1,0 +1,25 @@
+Here is a screen shot of mrxvt-0.5.0 with many tabs, a scroll-bar and showing a popup menu:
+
+ScreenShotv5 ![http://mrxvt.googlecode.com/svn/wiki/v5small-screenshot1.png](http://mrxvt.googlecode.com/svn/wiki/v5small-screenshot1.png)
+
+Here are a few screenshots of the older versions (0.4.x) of mrxvt:
+
+  * ScreenShot1 ![http://mrxvt.googlecode.com/svn/wiki/small-screenshot-1.png](http://mrxvt.googlecode.com/svn/wiki/small-screenshot-1.png)
+  * ScreenShot2 ![http://mrxvt.googlecode.com/svn/wiki/small-screenshot-2.png](http://mrxvt.googlecode.com/svn/wiki/small-screenshot-2.png)
+  * ScreenShot3 ![http://mrxvt.googlecode.com/svn/wiki/small-screenshot-3.png](http://mrxvt.googlecode.com/svn/wiki/small-screenshot-3.png)
+  * ScreenShot4 ![http://mrxvt.googlecode.com/svn/wiki/small-screenshot-4.png](http://mrxvt.googlecode.com/svn/wiki/small-screenshot-4.png)
+  * ScreenShot5 ![http://mrxvt.googlecode.com/svn/wiki/small-screenshot-5.png](http://mrxvt.googlecode.com/svn/wiki/small-screenshot-5.png)
+
+<a href='Hidden comment: 
+[http://mrxvt.googlecode.com/svn/wiki/v5screenshot1.png http://mrxvt.googlecode.com/svn/wiki/v5small-screenshot1.png] fails to work as expected - the http server if offering application/octet-stream which is not recognised as an image by the browser. So I made some
+crufty pages with the screenshot ...
+
+Actually there is something very broken in the way the wiki is handling image links - hence simplifying to the above ugliness. eg this plain html does not work:
+
+<a href="http://mrxvt.googlecode.com/svn/wiki/v5screenshot1.png"> http://mrxvt.googlecode.com/svn/wiki/v5small-screenshot1.png
+
+Unknown end tag for &lt;/a&gt;
+
+
+
+'></a>

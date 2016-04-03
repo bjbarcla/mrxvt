@@ -1,0 +1,46 @@
+
+
+# Setting the terminfo entries #
+
+Unfortunately, the default terminfo files distributed with most distributions are still ancient 8 color ones. Probably the first thing you should do is to regenerate the terminfo database to reflect that you have 256 colors. You use the mrxvt.terminfo file supplied with the mrxvt source. Do
+```
+    tic mrxvt.terminfo
+```
+and your terminfo should now reflect that your terminal has 256 colors. (Make sure that you run mrxvt with TERM=rxvt).
+
+# Vim #
+
+Vim can use 256 colors and give you an almost identical look in your console and GUI version of Vim. All you have to do is use a color scheme that takes advantage of the 256 color support. You can try [xterm16](http://www.vim.org/scripts/script.php?script_id=795), which was written (by me) with this in mind. (The documentation also has a few words on how to get 256 colors working properly in Vim).
+
+Alternately, if you choose to define your own colors in Vim, do something like this:
+```
+if &t_Co == 256
+    hi <group> ctermfg=xxx ctermbg=yyy
+    ...
+else
+    " define highlighting groups for non-256 color terminals
+endif
+```
+Here xxx and yyy are the color NUMBER respectively. The way 256 color terminals number colors is as follows:
+
+  1. Colors 0 -- 15 are the primary colors.
+  1. Colors 16 -- 231 form a 6x6x6 RGB cube.
+  1. Colors 232 -- 255 form a greyscale ramp.
+
+# Mutt #
+
+Mutt understands colors from 16--255 only by number (not name). On terminals which don't support 256 colors you get an error if you use any color over 16. Thus what I do is have two files [colors.8](Colors8.md) and [colors.256](Colors256.md) defining colors in each situation. Then source them in `~/.mutt/muttrc` via
+```
+source ~/.mutt/colors.`tty -s && tput colors || echo 8`
+```
+Finally create symlinks to the file `colors.16` via
+```
+cd ~/.mutt
+ln -s colors.8 colors.16
+ln -s colors.8 colors.2
+ln -s colors.8 colors.-1
+```
+
+# Shell #
+
+dircolors, lscolors

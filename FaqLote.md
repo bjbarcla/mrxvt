@@ -1,0 +1,83 @@
+
+```
+--------------------------------------------------------------------------
+Frequently Asked Questions (FAQ) - LOTE
+--------------------------------------------------------------------------
+
+Q:  When I want to use Chinese (or Korea/Japanese) encoding and font, executing
+    command `mrxvt -km gb -mfont fontname' is not working! For example, it
+    complains that -km is a bad option.
+
+A:  Most probably, you have not enabled gb/big5/kanji/korea options when you
+    configure the mrxvt. These options are turned off by default. Reconfigure
+    mrxvt to enable these options and rebuild it like the following:
+
+	$ ./configure --enable-cjk --enable-whatever-other-options
+	$ make
+	$ su
+	$ make install
+
+-----
+
+Q:  How do I input Chinese (or Korea/Japanese) in mrxvt?
+
+A:  First of all, you need to to enable the language options for
+    Chinese/Korea/Japanese as the above question when you configure mrxvt. You
+    also needs to enable the XIM option (--enable-xim).
+
+    Then make sure you have correctly setup and started the XIM server, like
+    SCIM, Chinput, fcitx, etc. 
+
+    Next, set the correct locale for mrxvt. You only need to set the environment
+    variable LC_CTYPE. But after you set it, make sure that the environment
+    variable LC_ALL is not set.
+
+    Finally, set the correct X resources in ~/.mrxvtrc file as the followling.
+    Remember the value of inputMethod is case sensitive.
+
+	mrxvt*multichar_encoding: GB
+	mrxvt*inputMethod:        SCIM
+
+-----
+
+Q:  I execute mrxvt with CJK encoding and X11 fonts. But sometimes CJK
+    characters are not display completely, or there are some extra pixels left
+    after the CJK characters.
+
+A:  This is a known issue for displaying CJK characters using X11 fonts. Mrxvt
+    requires that the width of each CJK character (mfont) be twice as the width
+    of each english character (font). If this condition is not met, mrxvt may
+    display CJK characters with some problems. For example, if you choose 6x12
+    as the font, and the SimSun font as the mfont, but the width of the SimSun
+    font is 13, you will get in trouble. In particular, let us assume that you
+    want to display a string "XXabc", where "XX" represents a single Chinese
+    character. With SimSun font, the width of "XX" is 13, but mrxvt thinks it is
+    12 (= 2 * 6)!!! Thus, when "abc" is displayed, two pixels of "XX" will be
+    overwritten by "a"! There are two solutions to this issue. One is to
+    carefully choose the font and mfont such that the width of mfont is twice of
+    the font. The other is to use freetype font, where we have a special
+    handling to avoid this problem.
+
+-----
+
+Q:  Does mrxvt support UTF-8 locale/encoding method?
+
+A:  Not now. This is a planned work and hopefully will be supported in the next
+    development branch (0.5.x).
+
+-----
+
+Q:  I use UTF-8 as default encoding method, but mrxvt does not support it. So
+    can I start mrxvt with other encoding method, e.g., zh_CN.GB2312 without
+    changing the default encoding method?
+
+A:  No problem! You can start mrxvt like the following if you use bash/ksh/sh:
+
+	LC_CTYPE=zh_CN.GB2312 mrxvt &
+
+    If you use csh, try the following
+
+	env LC_CTYPE=zh_CN.GB2312 mrxvt &
+
+-----
+```

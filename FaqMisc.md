@@ -1,0 +1,148 @@
+
+```
+--------------------------------------------------------------------------
+Frequently Asked Questions (FAQ) - miscellany
+--------------------------------------------------------------------------
+
+Q:  When I run mrxvt from command line, it outputs lots of verbose text. How to
+    disable it?
+
+A:  You probably have configured mrxvt with debug support. You need to
+    reconfigure mrxvt to disable debug support and rebuild it, like the
+    following:
+
+	$ ./configure --enable-whatever-options --disable-debug $ make
+
+-----
+
+Q:  I have ~/.Xdefaults and ~/.mrxvtrc, which one is the first to be read?
+
+A:  ~/.mrxvtrc will be the one to be read, and ~/.Xdefaults is ignored. Mrxvt
+    tries to read three resources files in sequence: ~/.mrxvtrc, ~/.Xdefaults
+    and ~/.Xresources. If either one is successfully opened, the rest are
+    ignored.
+
+    Very soon the ~/.Xdefaults and ~/.Xresources files will not be used by
+    mrxvt, and we recomend you call your config file ~/.mrxvtrc.
+
+-----
+
+Q:  I like to use context menu when I right click in the terminal window. For
+    example, to copy/paste text. Can you support it?
+
+A:  YES! As of mrxvt-0.5.0 popup menus are supported. By default control right
+    click on the terminal for a (customizable) menu. Control left click (or
+    right click on the tabbar) for a list of all tabs. You must compile mrxvt
+    with --enable-menubar.
+
+-----
+
+Q:  How do I know which mrxvt version I'm using?
+
+A:  The version number is displayed with the usage (-h). For rxvt version
+    2.14 and later, the escape sequence `ESC[8n' sets the window title to the
+    version number.
+
+-----
+
+Q:  Mouse cut/paste suddenly no longer works.
+
+A:  Make sure that mouse reporting is actually turned off since killing some
+    editors prematurely may leave the mouse in mouse report mode.  I've heard
+    that tcsh may use mouse reporting unless it otherwise specified. A quick
+    check is to see if cut/paste works when the Alt or Shift keys are depressed.
+    See doc/refer.txt
+
+-----
+
+Q:  How do I distinguish if I'm running mrxvt or a regular xterm? I need this to
+    decide about setting colors etc.
+
+A:  mrxvt always exports the variable "COLORTERM", so you can check and see if
+    that is set. It also exports the variable "MRXVT_TABTITLE". Note that
+    several programs, JED, slrn, Midnight Commander automatically check this
+    variable to decide whether or not to use color.
+
+-----
+
+Q:  How do I set the correct, full IP address for the DISPLAY variable?
+
+A:  If you've compiled mrxvt with DISPLAY_IS_IP then it is possible to use the
+    following shell script snippets to correctly set the display.  If your
+    version of mrxvt wasn't also compiled with ESCZ_ANSWER (as assumed in these
+    snippets) then the COLORTERM variable can be used to distinguish mrxvt from
+    a regular xterm.
+
+    Courtesy of Chuck Blake <cblake@BBN.COM> with the following shell script
+    snippets:
+
+	# Bourne/Korn/POSIX family of shells:
+	# assume an xterm if we don't know
+	[ ${TERM:-foo} = foo ] && TERM=xterm
+	if [ ${TERM:-foo} = xterm ]; then
+	    # see if enhanced mrxvt or not
+	    stty -icanon -echo min 0 time 15
+	    echo -n '^[Z'
+	    read term_id
+	    stty icanon echo
+	    if [ ""${term_id} = '^[[?1;2C' -a ${DISPLAY:-foo} = foo ]; then
+		# query the mrxvt we are in for the DISPLAY string
+		echo -n '^[[7n'
+		# set it in our local shell
+		read DISPLAY
+	    fi
+	fi
+
+    csh/tcsh family of shells:
+
+	# if term is unset, we are probably in an xterm
+	if ( !(${?TERM}) ) then
+	    TERM = xterm
+	endif
+	if ( ${TERM} =~ xterm ) then
+	    # see if enhanced mrxvt or not
+	    stty -icanon -echo min 0 time 15  
+	    echo -n '^[Z'
+	    set term_id=$<
+	    stty icanon echo
+	    if ( ""${term_id} == "^[[?1;2C" && ${?DISPLAY} == 0 ) then
+		# query the mrxvt we're in for the DISPLAY string
+		echo -n '^[[7n'
+		# set it in our local shell
+		setenv DISPLAY "$<"
+	    endif
+	endif
+
+-----
+
+Q:  Can I search the scroll back buffer?
+
+A:  Yes! (Well sort of). The following two macros (bound to Ctrl+Shift+? and
+    Ctrl+/ respectively) will save your scroll back buffer to a file and open it
+    in less and vim respectively. When opened in less, you can see the same
+    colors as you do on your screen. When opened in Vim, you can edit / cut &
+    paste, but can't see the same colors [unless you write your own syntax file,
+    and use the "conceal" patch by Vince Negri].
+
+	Mrxvt.macro.Primary+Ctrl+Shift+question: PrintScreen -ps perl -e '$_=join("",<STDIN>); s/\n+$/\n/g; print' > /tmp/scrollback
+	Mrxvt.macro.Primary+Add+Ctrl+Shift+question: NewTab "(Search)" /bin/sh -c "less -ifLR +G /tmp/scrollback; rm /tmp/scrollback"
+
+	Mrxvt.macro.Primary+Ctrl+slash: PrintScreen -s perl -e '$_=join("",<STDIN>); s/\n+$/\n/g; print' > /tmp/scrollback
+	Mrxvt.macro.Primary+Add+Ctrl+slash: NewTab "(Search)" /bin/sh -c 'view +"syn off|set nospell notitle |normal G" /tmp/scrollback; rm /tmp/scrollback'
+
+    NOTE: If you use Vim-6.4, you probably want to remove the "nospell" Vim
+    option. Opening in Vim is especially useful if Vim is compiled with X
+    support. In this case, Vim will synchronize your visual selection to the X
+    clipboard buffer, and you can paste it into other tabs using Ctrl+Shift+v.
+    
+    The perl command just strips the trailing new lines from your buffer. If you
+    want them, replace it with "cat". Remember that once you view the scroll
+    back buffer in less / vim, new output in the original tab will not be
+    visible in less / vim. Also the scroll back buffer is in the file
+    /tmp/scrollback. If you are working on some highly secret government
+    project, and don't want any one else to be able to see your scroll back
+    buffer, umask it correctly, or replace /tmp/scrollback to some private
+    location in your home directory.
+
+-----
+```

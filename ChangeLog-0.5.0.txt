@@ -1,0 +1,158 @@
+0.4.2 to 0.5.0
+\-----------------------------------
+Gautam Iyer <gi1242@users.sourceforge.net>
+	* Bug Fixes:
+		1. Bug #1301269: Make ACS graphics / line drawing characters work
+		   under Xft.
+		2. Bug #1337635: Made ColorBD/HL work under Xft.
+		3. Fixed pseudo-transparency when the root background is tiled on the
+		   desktop.
+		4. Numerous fixes to options to match the documentation (see CVS
+		   logs).
+		5. Partially fixed "transparentForce" option (see man page).
+		6. Enabled pointer blank under Xft.
+		7. Fixed text shadow.
+		8. Enabled Xft with menus.
+		9. If we're unable to exec the shell (or command specified), print an
+		   error message and exit gracefully. (Thanks to Eygene Ryabinkin).
+	   10. Fix crash after XIM quits. (Thanks to Gary Zhang for pointing it to
+		   us, and attach the patch).
+	   11. Fix XIM preedit problems (Thanks to Yoshihiko Kashio for the
+	       patch), including:
+           - wrong calculation of the preedit area size with hide/show 
+		   bars
+           - updating the size of the preedit area with resizing window
+           - updating the fontset of the preedit area with changing
+		   font size
+           - the linespace of the preedit area is not configured
+           - the preedit character is not drawn on the font baseline
+           - clean up codes related to XIM
+	   13. Fix compile on cygwin by implementing strcasestr.
+	   14. Added a macro XTERM_KEYS to feature.h. If defined, then modified
+		   function keys will send the same escape sequences as Xterm.
+	   15. Fixed DEC sequences sent by the numeric keypad.
+
+	* Enhancements (Performance):
+		1. Reduced memory (xresource) usage under pseudo-transparency.
+		2. Made performance improvement to expose events (especially under
+		   Xft). Dragging some other window over mrxvt no longer causes
+		   any flicker :).
+		3. Decreased CPU usage when not focused.
+		4. Rewrote tabbar drawing routines to eliminate flicker on expose.
+		5. Optimized screen drawing routine with "caching": Causes notable
+		   performance improvement under Xft.
+
+	* Enhancements (Appearance / Features):
+		1. Updated documentation! (Includes shiny new almost complete man
+		   page).
+		2. Make tabbar apearence more intuitive: Use itabBackground instead of
+		   tabBackground for the background of the tabBar so that the active
+		   tab stands out better.
+		3. Make highlighted tabs stay highlighted until activated.
+		4. Fixed borderless windows (thanks to Jonathan Black for the patch).
+		5. Added popup menus. Ctrl left/right click pops up menus.
+		6. Right click on tabbar now pops a menu listing all tabs.
+		7. Rewrote tabbar drawing routines. Tabs now have rounded tops. Also
+		   made the active tab bigger than the others (like Konsole).
+		8. When clearing the primary screen, we move the text into the
+		   scrollback buffer (instead of discarding the information
+		   completely). Thanks to Sabit Sayeed for the suggestion.
+
+	* New features:
+		1. Added option -htb (--highlightTabOnBell) to highlight inactive tabs
+		   only when a bell sounds.
+		2. Added option -mtw (--maxTabWidth) to set the maximum displayed with
+		   of each tab.
+		3. Added option --smoothResize to resize the window in pixel
+		   increments instead of by char. Useful for fullscreen / maximizing.
+		   Requires frills.
+		4. Added option --fullScreen to make window fullscreen.
+		5. Made feature --enable-smartresize into option --smartResize. Make
+		   smart resize aware of window manager decorations. Requires frills.
+		6. Added option -aht (--autohideTabbar) to automatically hide the
+		   tabbar if there is only one tab, and show it if there are more than
+		   one tabs open.
+		7. Added a "hard reset" hotkey. Thanks to Pavel Gorshkov for the
+		   patch.
+		8. Added --enable-xrender compile time option to use XRender alpha
+		   blending to tint the background under pseudo transparency.
+		9. Enabling tinting transparent tabbar / menubar with their background
+		   colors. Requires XRender.
+	   10. Added --bgRefreshInterval option specifying how long we should wait
+		   before refreshing our background. This avoids laggy delays while
+		   dragging the window.
+	   11. Added hotkeys ScrollHome and ScrollEnd to scroll to the beginning
+		   and end of the scrollback buffer. Bound these by default to
+		   Shift+Home and Shift+End.
+	   12. Added option -xftpfn and -xftpsz to specify the name and size of a
+		   propotionally spaced font for the tabbar / menubar.
+	   13. Added support for Firefox like tabs: All tabs have the same width,
+		   and they shrink as tabs are added. Requires xftpfn
+	   14. Added option -mvt to determine the minimum number of tabs to keep
+		   visible.
+	   15. Added CloseWindow hotkey and escape sequence.
+	   16. New tabs now open in the current working directory of the active
+		   tab.
+	   17. The "hotkey" feature from mrxvt-0.4.2 has now been replaced with
+		   a "macro" feature. This reduces the code size slightly, and
+		   provides added functionality.
+	   18. Implemented a "ToggleMacros" function to toggle using keyboard
+		   macros. Renamed options "-dh" and "-ddh" to "-dm" and "-nsc"
+		   respectively.
+	   19. Added feature to move tabs by dragging.
+
+	* Code cleanup:
+		1. Removed the SCROLL_ON_* features. These can all now be implemented
+		   using hotkeys.
+		2. Cleaned up menubar code.
+		3. With -xftpfn the menus now look good :). And you have your precious
+		   Control right click menu from Xterm.
+		4. Changed default scroll bindings to only work on the primary screen.
+		5. Fixed code indent (and added lots of comments) in lots of places.
+		6. Removed compiled in keyboard shortcuts (e.g. Ctrl-+ font resizing).
+		   This can be done with macros, and the macros method provides added
+		   flexibility.
+		7. Removed support for getting resources using the X resource
+		   database. Now resources are only read using ~/.mrxvtrc.
+
+	* Incompatible Changes:
+		1. Tinting works differently with XRender. See -tint in the man page.
+		2. The default terminal is now "rxvt" instead of "xterm". This causes
+		   trouble on some systems where the "rxvt" termcap / terminfo entries
+		   are not correctly setup.
+		3. The old "hotkey" feature has been removed. Use the "macro" feature
+		   instead.
+		4. Mrxvt menus are now incompatible with rxvt. Mainly because the
+		   menu-action works similar to the macro actions, which extends the
+		   functionality of the old rxvt menus.
+		5. Quite a few escape sequences controling tabs have been disabled for
+		   security concerns (e.g. creating, closing and moving tabs). All
+		   these functions can be accessed through macros, and menus. (The
+		   idea is that only interactive users should have access to these
+		   functions. 'cat'ing a text file with these escape sequences should
+		   not produce such effects.
+		6. A few default bindings were changed for consistency (and might be
+		   changed again).
+
+Jimmy Zhou <jimmyzhou@users.sourceforge.net>
+	fix bug under XFT that ColorBD/ColorHL are ignored (Sourceforge
+		Bug ID# 1337635). Thanks Gautam Iyer for the patch.
+	fix screen flicker behavior when pseudo-transparency is enabled
+		and mrxvt is off-screen. Also fix a BadMatch error. Thanks
+		a lot to Gautam Iyer for the clear explanation of the problem
+		and his nice patch.
+	fix code of highlighting inactive tabs when they receive some
+		output. Add an compile option HIGHLIGHT_TAB_ON_BELL into
+		feature.h (disabled by default) so that inactive tabs are
+		only highlighted when they receive bell. Also make highlight
+		bold. Thanks Joshua Wise for the suggestion and patch.
+	fix hot key parsing. Primary flag should not be checked like
+		ctrl/meta/shift flag.
+	fix button click action on tabbar based on Mark Olesen's patch.
+		Now scroll-up and scroll-down clicks (Button4 and Button5)
+		will active the previous/next tab. In addition, only clicks
+		of Button1 will activate the button functions.
+	fix hotkey handler to kill a tab according to Mark Olesen's
+		suggestion. That says, if there is only one tab left, we
+		shall not kill it to quite the entire terminal. This behavior
+		is the same as gnome-terminal.

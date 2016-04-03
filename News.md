@@ -1,0 +1,41 @@
+#### Dec 31, 2008: _Migration to Google Code._ ####
+> Look a new WIKI!! Suxforge finally got on my nerves enough (and not to mentioned changed their configuration so that our old wiki was unusable). We will now transition to the google code site. A big thanks to _Bob Hepple_ for migrating the wiki over to the google code site. The mailinglists and subversion repositories will soon be moved over.
+
+#### Aug 04, 2008: _Mrxvt-0.5.4 released._ ####
+> It's been another year. We're still alive :). Hmm. Maybe I've said this before... Yet another bugfix release, but a few new features have been added. We also had a few devs (Jehan, Frederick and Marc) join mrxvt, and actively contribute! So hopefully you'll see more frequent releases in future.
+
+#### Aug 23 2007: _Mrxvt-0.5.3 released._ ####
+> It's been a year. We're still alive! There were numerous changes to the code base in the subversion repository. But we never got off our butts and released! So here we present you mrxvt-0.5.3.
+> This is mainly a bugfix release. A few exceptionally annoying bugs were fixed (e.g. the scroll on tty output behaviour). A few new features were added. For instance, you can now communicate with mrxvt using a socket. So you can configure a button on your panel / doc to raise the mrxvt window, and open a new tab in it!
+> Neato? Well upgrade, and file bug reports. (Did I mention we're short staffed. You're welcome to join us...)
+
+#### Oct 16, 2006: _Oops. We messed up!_ ####
+> The 0.5.2 release had X debugging information turned ON. This caused mrxvt to request X events to be processed synchronously, and slowed things down considerably. We now released a patch to fix this. Please patch the source! (Note -- even with debugging information turned on, mrxvt-0.5.2 outperformed 05.1 in most situations. Now it outperforms 0.5.1 in all situations!)
+
+#### Oct 1, 2006: _Mrxvt version 0.5.2 is released._ ####
+> This is a MAJOR bugfix release. As an added bonus, the new release is about 3 times faster, and very busy tabs will not starve others. Very few new features have been added, and only one or two options have changed from 0.5.1
+> We strongly recommend that all 0.5.x users upgrade to 0.5.2.
+
+#### Jun 22, 2006: _Mrxvt version 0.5.1 is released._ ####
+> This release adds a new feature of profile support, and makes lots of improvement to the new macro feature. It also fixes lots of bugs. For details, check ChangeLog. :-)
+
+#### Apr 09, 2006: _Mrxvt version 0.5.0 is released._ ####
+> After active development for more than three months, we hereby present you this newest and best ever release of mrxvt. This release has significantly improved performance and further reduced resource usage even though mrxvt's footprint was already very small. New features include (but are not limited to): better and intelligent tabbar apperance, full screen mode, new powerful macros (replacing hotkeys), XRender alphablending, popup menus, etc. Numerious bugs have been fixed as well. Please test it out and send us bug reports, comments, suggestions, and of course patchs.
+> Note: If you do not find the configure script in the source tarball, it means that you have downloaded the old tarball. Our apologies to forget to generate it. Please download the new tarball again.
+
+#### Jan 26, 2006: _We have got a new developer!_ ####
+> Let us welcome Gautam Iyer to the development team and applaud his wonderful contributions to the project! For the new code in progress, please check out our CVS repository.
+
+#### Nov 14, 2005: _Mrxvt version 0.4.2 is released._ ####
+> This is a bug fix release with lots of fixes. Sorry I did not have much time to devote to the development of mrxvt in the past months. So the new features, like UTF-8, are still not available. If you are willing to help on the development, please do not hesitate to let me know!
+
+#### May 02, 2005: _Mrxvt version 0.4.1 is released!_ ####
+> This release fix lots of bugs! No new features are introduced.
+
+#### Apr 19, 2005: _We're alive._ ####
+> It has been a while since 0.4.0, and some of you might wonder about the status of the project. This project is not dead! I am still fixing bugs, and planning new features. The updates are slow due to my recent busy schedule. Please be a little patient, and thank you all for the supports!
+
+#### Feb 25, 2005: _Mrxvt version 0.4.0 is released._ ####
+> This is a long awaited stable release since there have been no more bug reports recently. ;-) This release fixes several minor bugs.
+
+Read older news [here](OldNews.md).

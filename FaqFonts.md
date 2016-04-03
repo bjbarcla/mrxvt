@@ -1,0 +1,66 @@
+
+```
+--------------------------------------------------------------------------
+Frequently Asked Questions (FAQ) - using fonts
+--------------------------------------------------------------------------
+
+
+Q:  I dislike the default mrxvt font, so I have installed some new fonts, like
+    the Verdana font. But when I run mrxvt with option `-fn verdana', mrxvt
+    complains that it cannot find the verdana font! What is wrong?
+
+A:  There are two types of fonts in X Window System, the ancient X11 bitmap
+    fonts and the new freetype fonts. Mrxvt is capable to use either type of
+    fonts.
+    
+    The X11 bitmap fonts have a special format of names. You can execute command
+    `xlsfonts | more' to get a complete list of all X11 bitmap fonts installed
+    in your system, and pick one you like. Or you can execute program `xfontsel'
+    to pick one, which shows you the look of the font nicely. As you can see,
+    the font name is in a special format like the following example. That is why
+    mrxvt complains if you only provide the name of the font:
+
+	-adobe-courier-bold-o-normal--14-140-75-75-m-90-iso8859-1
+
+    The freetype fonts are much simpler to handle. You only need to give the
+    font family name to `-xftfn' option, there is not a magic format like X11
+    font. You can specify other characteristics of the freetype font using other
+    related options.
+
+-----
+
+Q:  How to enable freetype font, or, say the XFT support?
+
+A:  You can either use the -xft command line option or the `xft' X resource
+    option in the ~/.mrxvtrc file. Check the sample configuration file
+    doc/xdefaults-sample.txt and man page for more details.
+
+-----
+
+Q:  After I use freetype font, the text rendering speed seems to slow down a
+    lot! How to improve the speed?
+
+A:  Yes, this is a known problem with XFT support. One way to fix it is to
+    disable antialias (and autohinting or hinting). But it may make the font
+    look ugly. If you do not like it, disable XFT support and use X11 font
+    instead.
+
+-----
+
+Q:  After I use freetype font, the line space seems too large. Is there any way
+    to narrow down the line space?
+
+A:  This is probably because you have enabled the multichar support when you
+    configure mrxvt. In this case, mrxvt loads two fonts, one the normal font,
+    and one the multichar font. But due to some problems with XFT library, the
+    font loading function does not follow our instructions to load the two fonts
+    at specified size. Thus, the size of two fonts are often different. To get a
+    better rendering result, mrxvt picks the large size, which is usually the
+    multichar font. But normal text are usually displayed using normal font at a
+    smaller size. So it appears that the line space is too large. To solve this
+    problem, you can specify the multichar font be the same as the normal font
+    since mrxvt 0.3.9, or specify the -xftnfm option to not to load multichar
+    font, or build mrxvt without multichar support.
+
+-----
+```

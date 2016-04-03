@@ -1,0 +1,1 @@
+![http://mrxvt.googlecode.com/svn/wiki/screenshot-5.png](http://mrxvt.googlecode.com/svn/wiki/screenshot-5.png)
